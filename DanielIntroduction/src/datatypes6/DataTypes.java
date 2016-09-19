@@ -54,6 +54,7 @@ public class DataTypes {
 //		System.out.println("m/n is "+((double)m/n));
 //		
 		
+		
 		Original set1 = new Add1();
 		set1.print();
 		
