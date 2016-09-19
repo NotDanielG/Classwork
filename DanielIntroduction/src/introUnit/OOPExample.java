@@ -16,6 +16,7 @@ public class OOPExample {
 		Student jillian = new Senior("Jillian", "programmer");
 		Student joseph = new Freshmen("Joseph", "DDP");
 		Student jordan = new Junior("Jordan", "Regular SAT");
+		Student craig = new Student("Craig");
 		
 		Student[] students = {jillian, joseph};
 		
@@ -23,6 +24,7 @@ public class OOPExample {
 		((Student)jillian).talk();
 		joseph.talk();
 		jordan.talk();
+		craig.talk();
 
 	}
 

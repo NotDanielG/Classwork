@@ -21,7 +21,42 @@ public class DataTypes {
 //		System.out.println("d3 : " + d3);  
 //		System.out.println("d1 - d2 : " + (d1 - d2));
 		
-		String s = 1; // Expected value is supposed to be a string but it has not quotations
-		System.out.println(s);
+//		String s = 1; // Expected value is supposed to be a string but it has not quotations
+//		System.out.println(s);
+//		
+//		String s = (String)1; // # supposed to be in quotations
+//		System.out.println(s);
+//
+//		String s = "1"; //able to output because the 1 is a string
+//		System.out.println(s);
+//		
+//		String s = ""+1;//the 3 equations can 
+//		System.out.println(s);
+//	
+//		String s = "Happy "+18+"th birthday!";
+//		System.out.println(s);
+//	
+//		String s = "Happy 18th birthday!";
+//		System.out.println(s);
+//	
+//		String s = "Happy "+54/3+"th birthday!"; // Has string components, does the calculation.
+//		System.out.println(s);
+//	
+//		String s = "Happy "+(54/3)+"th birthday!";//same as before does same thing
+//		System.out.println(s);
+//	
+//		int m = 22;
+//		int n = 7;
+//		System.out.println("m/n is "+(m/n));Does the calculation, even though the result should be 7>, it ignores the decimal and only uses the integer.
+//
+//		int m = 22;
+//		int n = 7;
+//		System.out.println("m/n is "+((double)m/n));
+//		
+		
+		Original set1 = new Add1();
+		set1.print();
+		
 	}
+	
 }
