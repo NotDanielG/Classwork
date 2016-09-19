@@ -7,6 +7,6 @@ public class Student {
 		this.name = name;
 	}
 	public void talk(){
-		System.out.println("Hi, my name is "+name);
+		System.out.println("Hi, my name is "+this.name);
 	}
 }
