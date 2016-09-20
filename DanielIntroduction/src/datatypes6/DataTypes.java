@@ -2,7 +2,7 @@ package datatypes6;
 
 public class DataTypes {
 
-	public static void main(String[] args) {
+//	public static void main(String[] args) {
 //		System.out.println(5.0/2);//double divided by integer
 //		System.out.println((double) 5/2);//casting
 //		System.out.println(5/2);
@@ -20,7 +20,7 @@ public class DataTypes {
 //		System.out.println("d2 : " + d2); 
 //		System.out.println("d3 : " + d3);  
 //		System.out.println("d1 - d2 : " + (d1 - d2));
-		
+//		
 //		String s = 1; // Expected value is supposed to be a string but it has not quotations
 //		System.out.println(s);
 //		
@@ -53,11 +53,20 @@ public class DataTypes {
 //		int n = 7;
 //		System.out.println("m/n is "+((double)m/n));
 //		
-		
-		
-		Original set1 = new Add1();
-		set1.print();
-		
-	}
+//		String ten = "10";
+//		String two = "2";
+//		
+//		if(ten.compareTo(two)>0){
+//			System.out.println("10 is greater than two");
+//		}
+//		else{
+//			System.out.println("10 is greater than 2");
+//		}
+//			
+//		
+//		Original set1 = new Add1();
+//		set1.print();
+//		
+//	}
 	
 }
