@@ -1,6 +1,6 @@
 package datatypes6;
 
-import java.util.Random;
+//import java.util.Random;
 
 public class MathRandom {
 
