@@ -9,7 +9,9 @@ public class StringPractice {
 		String text2 = "Hello ";
 		String text3 = "World";
 		
-		System.out.println(text);
+		if(text1.equals(text2+text3)){
+			System.out.println("These strings are equal.");
+		}
 
 	}
 
