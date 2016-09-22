@@ -6,17 +6,19 @@ public class StringPractice {
 
 	static Scanner input;
 	static String user;
+	static int lineCount;
 	
 	public static void main(String[] args) {
 		createAScanner();
+		lineCount = 0;
 		//demonstrateStringMethod();
 		promptName();
 		talkForever();
 	}
 	private static void promptName() {
 		print("Hello, human. I am a board covered with "
-				+ "semiconductors and other such electronic components. "
-				+ "What is your name?");
+				+ "\nsemiconductors and other such electronic components. "
+				+ "\nWhat is your name?");
 		user = input.nextLine();
 		print("Awesome, I will call you "+user+" until you terminate me.");
 	}
@@ -31,7 +33,8 @@ public class StringPractice {
 		print("You typed: " + userInput);
 	}
 	public static void print (String s){
-		System.out.println(s);
+		lineCount++;
+		System.out.println("Line #" + lineCount +": "+ s);
 	}
 	private static void createAScanner() {
 		input = new Scanner(System.in);
