@@ -1,15 +1,17 @@
-package datatypes6;
+package chatBot;
 
 import java.util.Scanner;
 
-public class StringPractice {
+public class DanielMain {
 
 	static Scanner input;
 	static String user;
 	static int lineCount;
+	static boolean inLoop;
+	static Topic school;
 	
 	public static void main(String[] args) {
-		createAScanner();
+		createTopics();
 		lineCount = 0;
 		//demonstrateStringMethod();
 		promptName();
@@ -26,7 +28,7 @@ public class StringPractice {
 		print("Awesome, I will call you "+user+" until you terminate me.");
 	}
 	public static void talkForever(){
-		boolean inLoop = true;
+		inLoop = true;
 		while(inLoop){
 //			promptInput();
 			print("Greetings, " + user +" How are you?");
@@ -67,9 +69,9 @@ public class StringPractice {
 		
 		System.out.println(printString);
 	}
-	private static void createAScanner() {
+	private static void createTopics() {
 		input = new Scanner(System.in);
-		
+		school = new School();
 	}
 	public static void demonstrateStringMethod(){
 		String text1 = "Hello World";
@@ -80,6 +82,5 @@ public class StringPractice {
 			System.out.println("These strings are equal.");
 		}
 	}
-	
-}
 
+}
