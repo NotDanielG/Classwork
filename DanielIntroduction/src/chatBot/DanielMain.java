@@ -36,6 +36,10 @@ public class DanielMain {
 			if(response.indexOf("good")>= 0){
 				print("I'm so happy you are good!");
 			}
+			else if (response.indexOf("school")>= 0){
+				inLoop = false;
+				school.talk();
+			}
 			else{
 				print("I'm sorry, I don't understand you.");
 			}

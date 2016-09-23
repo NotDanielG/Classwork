@@ -1,8 +1,23 @@
 package chatBot;
 
 public class School implements Topic {
-	public void talk() {
-		// TODO Auto-generated method stub
+	private boolean inSchoolLoop;
+	private String schoolResponse;
+	
+	public School(){
 		
+	}
+	
+	public void talk() {
+		inSchoolLoop = true;
+		while(inSchoolLoop){
+			DanielMain.print("Tell me about school.");
+			schoolResponse = DanielMain.getInput();
+			if(schoolResponse.indexOf("stop")>= 0){
+				inSchoolLoop = false;
+				DanielMain.talkForever();
+			}
+			DanielMain.print("That's my favorite part about school too");
+		}
 	}
 }
