@@ -33,7 +33,7 @@ public class DanielMain {
 //			promptInput();
 			print("Greetings, " + user +" How are you?");
 			String response = getInput();
-			if(response.indexOf("good")>= 0){
+			if(findKeyword(response,"good",0)){
 				print("I'm so happy you are good!");
 			}
 			else if (response.indexOf("school")>= 0){
@@ -77,14 +77,29 @@ public class DanielMain {
 		input = new Scanner(System.in);
 		school = new School();
 	}
-	public static void demonstrateStringMethod(){
-		String text1 = "Hello World";
-		String text2 = "Hello ";
-		String text3 = "World";
-		
-		if(text1.equals(text2+text3)){
-			System.out.println("These strings are equal.");
+	public static boolean findKeyword(String searchString, String key, int startIndex){
+		//deletes white spaces
+		String phrase = searchString.trim();
+		phrase = phrase.toLowerCase();
+		key = key.toLowerCase();
+		//find position of key
+		int psn = phrase.indexOf(key);
+		//keeps looking for the word
+		while(psn >= 0){
+			String before = " ";
+			String after = " ";
+			if(psn + key.length() < phrase.length()){
+				after = phrase.substring(psn + key.length(), psn + key.length()+1).toLowerCase();
+				
+			}
+			if(psn >0){
+				before = phrase.substring(psn-1, psn).toLowerCase();
+			}
 		}
+		
+		return false;
+		
 	}
+	
 
 }
