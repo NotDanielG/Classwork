@@ -95,9 +95,13 @@ public class DanielMain {
 			if(psn >0){
 				before = phrase.substring(psn-1, psn).toLowerCase();
 			}
+			if(before.compareTo("a")< 0 && after.compareTo("a") < 0){
+				return true;
+			}
+			psn = phrase.indexOf(key,psn+1);
 		}
-		
 		return false;
+		
 		
 	}
 	
