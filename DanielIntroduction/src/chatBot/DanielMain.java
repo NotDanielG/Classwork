@@ -9,11 +9,10 @@ public class DanielMain {
 	static int lineCount;
 	static boolean inLoop;
 	static Topic school;
+	static Topic like;
 	
 	public static void main(String[] args) {
 		createTopics();
-		lineCount = 0;
-		//demonstrateStringMethod();
 		promptName();
 		talkForever();
 	}
@@ -33,7 +32,7 @@ public class DanielMain {
 //			promptInput();
 			print("Greetings, " + user +" How are you?");
 			String response = getInput();
-			if(findKeyword(response,"good",0)){
+			if(findKeyword(response,"good",0)>= 0){
 				print("I'm so happy you are good!");
 			}
 			else if (response.indexOf("school")>= 0){
@@ -76,34 +75,60 @@ public class DanielMain {
 	private static void createTopics() {
 		input = new Scanner(System.in);
 		school = new School();
+		like = new DanielLike();
 	}
-	public static boolean findKeyword(String searchString, String key, int startIndex){
+	public static int findKeyword(String searchString, String key, int startIndex){
 		//deletes white spaces
 		String phrase = searchString.trim();
 		phrase = phrase.toLowerCase();
 		key = key.toLowerCase();
+//		System.out.println("The phrase is " +phrase);
+		
+//		System.out.println("The key is " + key);
 		//find position of key
 		int psn = phrase.indexOf(key);
+//		System.out.println("The position found is " + psn);
 		//keeps looking for the word
 		while(psn >= 0){
 			String before = " ";
 			String after = " ";
 			if(psn + key.length() < phrase.length()){
 				after = phrase.substring(psn + key.length(), psn + key.length()+1).toLowerCase();
-				
+//				System.out.println("The character after " + key + " is "+after);
 			}
 			if(psn >0){
 				before = phrase.substring(psn-1, psn).toLowerCase();
+//				System.out.println("The character before " + key + " is "+before);
 			}
 			if(before.compareTo("a")< 0 && after.compareTo("a") < 0){
-				return true;
+//				System.out.println(key+" was found at " + psn);
+				if(noNegations(phrase,psn)){
+					return psn;
+				}
 			}
+			
 			psn = phrase.indexOf(key,psn+1);
+//			System.out.println(key+" was not found. " + "Checking " + psn);
 		}
-		return false;
-		
-		
+		return -1;
 	}
-	
-
+	private static boolean noNegations(String phrase, int index) {
+		if(index - 3 >= 0 && phrase.substring(index-3,index).equals("no ")){
+			return false;
+		}	
+		else{
+			if(index - 4 >= 0 && phrase.substring(index-4,index).equals("not ") || phrase.substring(index-4,index).equals("n't ")){
+				return false;
+			}
+			else{
+				if(index - 6 >= 0 && phrase.substring(index-6,index).equals("never ")){
+					return false;
+				}
+				else{
+					return true;
+				}
+			}
+		}
+	}
 }
+
