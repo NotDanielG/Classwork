@@ -1,8 +1,8 @@
 package chatBot;
 
-import groupFiles.MatthewMain;
+import chatBot.DanielMain;
 
-public class MatthewHello implements Topic{
+public class DanielHello implements Topic{
 
 	private boolean inHelloLoop;
 	private String helloResponse;
@@ -22,11 +22,11 @@ public class MatthewHello implements Topic{
 		int responseIndex = 0;
 		if(helloCount <= 5){
 			responseIndex = (int)(Math.random()*calmResponses.length);
-			MatthewMain.print(calmResponses[responseIndex]);
+			DanielMain.print(calmResponses[responseIndex]);
 		}
 		else{
 			responseIndex = (int)(Math.random()*angryResponses.length);
-			MatthewMain.print(angryResponses[responseIndex]);
+			DanielMain.print(angryResponses[responseIndex]);
 		}
 		
 	}
@@ -35,10 +35,10 @@ public class MatthewHello implements Topic{
 		while(inHelloLoop){
 			helloCount++;
 			printResponse();
-			helloResponse= MatthewMain.getInput();
+			helloResponse= DanielMain.getInput();
 			if(!isTriggered(helloResponse)){
 				inHelloLoop= false;
-				MatthewMain.talkForever();
+				DanielMain.talkForever();
 			}
 		}
 		
@@ -47,10 +47,10 @@ public class MatthewHello implements Topic{
 	public boolean isTriggered(String userInput) {
 		String[] triggers = {"school","class","teacher"};
 		//Can loop to find the particular keyword;
-		if(MatthewMain.findKeyword(userInput, "hi", 0)>= 0){
+		if(DanielMain.findKeyword(userInput, "hi", 0)>= 0){
 			return true;
 		}
-		if(MatthewMain.findKeyword(userInput, "hello", 0)>= 0){
+		if(DanielMain.findKeyword(userInput, "hello", 0)>= 0){
 			return true;
 		}
 		return false;

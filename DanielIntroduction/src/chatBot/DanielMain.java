@@ -11,6 +11,7 @@ public class DanielMain {
 	//declare group classes
 	static Topic school;
 	static Topic like;
+	static Topic hello;
 	
 	public static void main(String[] args) {
 		createTopics();
@@ -78,6 +79,7 @@ public class DanielMain {
 		//initialize group topics
 		school = new School();
 		like = new DanielLike();
+		hello = new DanielHello();
 	}
 	public static int findKeyword(String searchString, String key, int startIndex){
 		//deletes white spaces
