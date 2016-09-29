@@ -20,4 +20,17 @@ public class School implements Topic {
 			DanielMain.print("That's my favorite part about school too");
 		}
 	}
+
+	
+	public boolean isTriggered(String userInput) {
+		String[] triggers = {"school","class","teacher"};
+		//Can loop to find the particular keyword;
+		if(DanielMain.findKeyword(userInput, "school", 0)>= 0){
+			return true;
+		}
+		if(DanielMain.findKeyword(userInput, "class", 0)>= 0){
+			return true;
+		}
+		return false;
+	}
 }

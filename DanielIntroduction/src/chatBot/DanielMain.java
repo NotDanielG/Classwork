@@ -8,6 +8,7 @@ public class DanielMain {
 	static String user;
 	static int lineCount;
 	static boolean inLoop;
+	//declare group classes
 	static Topic school;
 	static Topic like;
 	
@@ -35,7 +36,7 @@ public class DanielMain {
 			if(findKeyword(response,"good",0)>= 0){
 				print("I'm so happy you are good!");
 			}
-			else if (response.indexOf("school")>= 0){
+			else if (like.isTriggered(response)){
 				inLoop = false;
 				school.talk();
 			}
@@ -74,6 +75,7 @@ public class DanielMain {
 	}
 	private static void createTopics() {
 		input = new Scanner(System.in);
+		//initialize group topics
 		school = new School();
 		like = new DanielLike();
 	}
@@ -129,6 +131,17 @@ public class DanielMain {
 				}
 			}
 		}
+	}
+	public boolean isTriggered(String userInput) {
+		String[] triggers = {"school","class","teacher"};
+		//Can loop to find the particular keyword;
+		if(DanielMain.findKeyword(userInput, "school", 0)>= 0){
+			return true;
+		}
+		if(DanielMain.findKeyword(userInput, "class", 0)>= 0){
+			return true;
+		}
+		return false;
 	}
 }
 
