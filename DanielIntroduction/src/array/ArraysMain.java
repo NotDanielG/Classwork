@@ -4,9 +4,28 @@ public class ArraysMain {
 
 	public static void main(String[] args) {
 		long startTime = System.currentTimeMillis();
-		arrayIntroMethod();
+		String[] someStrings = new String[100];
+		populateArray(someStrings);
+		changeString(someStrings[99]);
+		printArray(someStrings);
+		
 		long endTime = System.currentTimeMillis();
 		System.out.print("Completed method in " + (endTime-startTime) + " milliseconds");
+	}
+	private static void changeString(String s) {
+		s = "This string has been changed.";
+	}
+	private static void printArray(String[] b) {
+		for(String a: b){
+			System.out.println(a);
+		}
+		
+	}
+	private static void populateArray(String[] a) {
+		for(int i =0; i<a.length;i++){
+			a[i] = "value " + (i + 1);
+		}
+		
 	}
 	public static void arrayIntroMethod(){
 		// Construct 2 integer arrays
@@ -29,9 +48,6 @@ public class ArraysMain {
 		//easier to type
 		for(boolean b: booleans){
 			System.out.println(""+b);
-		}
-		for(String a: strings2){
-			System.out.println(a);
 		}
 	}
 }
