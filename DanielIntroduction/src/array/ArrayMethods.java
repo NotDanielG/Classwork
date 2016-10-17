@@ -3,7 +3,8 @@ package array;
 public class ArrayMethods {
 
 	public static void main(String[] args) {
-	    
+	    int[] test1 = {1,2,3};
+	    System.out.println(searchUnsorted(test1,1));
 	     /**
 	      * IMPORTANT NOTE: 
 	      * This homework assignment will be weighted 4x.
@@ -20,6 +21,11 @@ public class ArrayMethods {
 	     * int corresponding to the index of a key, if it is in the array
 	     * if the key is not in the array, this method returns -1
 	     * */
+	    	for(int i = 0; i < arrayToSearch.length; i++){
+	    		if(arrayToSearch[i] == key){
+	    			return i;
+	    		}
+	    	}
 	     return -1;
 	    }
 	    
@@ -31,6 +37,7 @@ public class ArrayMethods {
 	     * 
 	     * Note: You should attempt to write a method that is more efficient that searchUnsorted
 	     * */
+	    	
 	     return -1;
 	    }
 	    

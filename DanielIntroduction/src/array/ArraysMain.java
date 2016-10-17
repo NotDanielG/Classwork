@@ -8,7 +8,7 @@ public class ArraysMain {
 		sample.increase();
 		System.out.println("The sample element has a number equal to " + sample.getNumber());
 		long endTime = System.currentTimeMillis();
-		System.out.print("Completed method in " + (endTime-startTime) + " milliseconds");
+		System.out.print("Completed method in " + (endTime-startTime) + " milliseconds");  
 	}
 	private static void passByValueDemonstration(){
 		String[] someStrings = new String[100];
