@@ -1,0 +1,55 @@
+package array;
+
+public class DeckOfCards {
+	public static void main(String[] args) {
+		int[] x = oneTofifty();
+		int[] y = randomInt();
+		int z = randomDice();
+		for(int i = 0; i < 10; i++){
+			System.out.println(randomDice());
+		}
+		listCards();
+	}
+	
+	public static int PickNumber(int par){
+		double rand = Math.random();
+		int result = (int)(rand*par);
+		return result+1;
+	}
+	
+	public static int PickSuit(int par){
+			return PickNumber(par);
+	}
+	public static int[] oneTofifty(){
+		int[] test1 = new int[50];
+		for(int b = 0; b < test1.length; b++){
+			test1[b] = (b+1);
+		}
+		return test1;
+	}
+	public static int[] randomInt(){
+		int[] test2 = new int[10];{
+			for(int c = 0; c < test2.length; c++){
+				test2[c] = PickNumber(4);
+			}
+		}
+		return test2;
+	}
+	public static int randomDice(){
+		int val = 0;
+		for(int i = 0; i < 2; i++){
+			val += PickNumber(6);
+		}
+		return val;
+	}
+	public static void listCards(){
+		String[] numbers = {"Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"};
+		String[] suits = {"Diamond","Clubs","Hearts","Spades"};
+		
+		for(int i = 0; i < numbers.length;i++){
+			for(int a = 0; a < suits.length; a++){
+				System.out.println(numbers[i] + " of " + suits[a]);
+			}
+		}
+	}
+}

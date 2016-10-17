@@ -37,7 +37,7 @@ public class ArrayMethods {
 	     * 
 	     * Note: You should attempt to write a method that is more efficient that searchUnsorted
 	     * */
-	    	
+	    int x = sortedArrayToSearch.length;
 	     return -1;
 	    }
 	    
