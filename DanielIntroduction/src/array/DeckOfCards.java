@@ -2,19 +2,29 @@ package array;
 
 public class DeckOfCards {
 	public static void main(String[] args) {
-		int[] x = oneTofifty();
-		int[] y = randomInt();
-		int z = randomDice();
-		for(int i = 0; i < 10; i++){
-			System.out.println(randomDice());
-		}
-		listCards();
+//		int[] x = oneTofifty();
+//		int[] y = randomInt();
+//		int z = randomDice();
+//		for(int i = 0; i < 10; i++){
+//			System.out.println(randomDice());
+//		}
+//		listCards();
 	}
 	
 	public static int PickNumber(int par){
 		double rand = Math.random();
 		int result = (int)(rand*par);
 		return result+1;
+	}
+	public static void verifyRandomDice(){
+		int[] check = {0,0,0,0,0,0,0,0,0,0,0};
+			for(int i = 0; i < 100; i++){
+				int x = randomDice();
+				check[x-2]+=1;
+			}
+		for(int w = 0; w < check.length; w++){
+			System.out.println();
+		}
 	}
 	
 	public static int PickSuit(int par){
