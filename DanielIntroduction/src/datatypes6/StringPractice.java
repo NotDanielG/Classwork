@@ -3,7 +3,6 @@ package datatypes6;
 import java.util.Scanner;
 
 public class StringPractice {
-
 	static Scanner input;
 	static String user;
 	static int lineCount;
@@ -80,6 +79,4 @@ public class StringPractice {
 			System.out.println("These strings are equal.");
 		}
 	}
-	
 }
-

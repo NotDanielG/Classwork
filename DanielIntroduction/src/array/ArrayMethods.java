@@ -27,7 +27,6 @@ public class ArrayMethods {
 	    		if(arrayToSearch[i] == key){
 	    			return i;
 	    		}
-	    		
 	    	}
 	     return -1;
 	    }
@@ -86,7 +85,7 @@ public class ArrayMethods {
 	    
 	    public static double[] sortList(double[] array){
 	    	double[] test = array;
-	    	return test;
+	    	
 	    }
 	    public static double[] getStats(double[] array){
 	        /** 
