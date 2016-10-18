@@ -3,8 +3,10 @@ package array;
 public class ArrayMethods {
 
 	public static void main(String[] args) {
-	    int[] test1 = {1,2,3};
-	    System.out.println(searchUnsorted(test1,1));
+	    int[] test1 = {7,6,5,4,3,1};
+	    double[] test2 = {4.33,4.22,4.11,4.55,3.99};
+	    System.out.println(getStats(test2)[2]);
+	    double[] test3 = sortList(test2);
 	     /**
 	      * IMPORTANT NOTE: 
 	      * This homework assignment will be weighted 4x.
@@ -37,18 +39,54 @@ public class ArrayMethods {
 	     * 
 	     * Note: You should attempt to write a method that is more efficient that searchUnsorted
 	     * */
-	    int x = sortedArrayToSearch.length;
-	     return -1;
+	    	boolean inLoop = true;
+	    	int low = 0;
+	    	int high = sortedArrayToSearch.length;
+	    	int med = ((low + high)/2);
+	    	
+	    	while(inLoop){
+	    		if(sortedArrayToSearch[med] == key){
+	    			inLoop = false;
+	    			return med;
+	    		}
+	    		else{
+	    			if(low == high || low > high || high < low){
+	    				inLoop = false;
+	    			}
+	    			else{
+		    			if(sortedArrayToSearch[med] < key){
+		    				high = med;
+		    				med = (low + high)/2;
+		    			}
+		    			else{
+		    				low = med;
+		    				med = (low + high)/2 ;
+		    			}
+	    			}
+	    		}	    			
+	    	}
+	    	return -1;
 	    }
 	    
 	    public static boolean isSorted(int[] array){
 	        /**
 	         * This method takes an in array as a parameter and returns 'true' if the array is already sorted in DESCENDING order
 	         * */
+	    	for(int i = 0; i < array.length; i++){
+	    		if(i == array.length-1){
+	    			return true;
+	    		}
+	    		if(array[i]<array[i+1]){
+	    			return false;
+	    		}
+	    	}
 	        return false;
 	    }
 	    
-	    
+	    public static double[] sortList(double[] array){
+	    	double[] test = array;
+	    	return test;
+	    }
 	    public static double[] getStats(double[] array){
 	        /** 
 	         * This method return a double[] contain a WHOLE BUNCH of stats
@@ -61,6 +99,33 @@ public class ArrayMethods {
 	         * index 5 = the number of values below the mean
 	         * */
 	         double[] stats = new double[6];
+	         double sum = 0;
+	         for(int i = 0; i< array.length;i++){
+	        	sum += array[i];
+	         }
+	         stats[0] = sum/array.length;
+	         
+	         double max = array[0];
+	         for(int i = 0; i< array.length;i++){
+	        	 if(max < array[i]){
+	        		 max = array[i];
+	        	 }
+	         }
+	         stats[1] = max;
+	         
+	         double min = array[0];
+	         for(int i = 0; i< array.length;i++){
+	        	 if(min > array[i]){
+	        		 min = array[i];
+	        	 }
+	         }
+	         stats[2] = min;
+	         
+	         
+	         
+	         
+	         
+	         
 	         return stats;
 	    }
 	    
