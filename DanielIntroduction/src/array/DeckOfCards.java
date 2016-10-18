@@ -1,6 +1,7 @@
 package array;
 
 public class DeckOfCards {
+	static int[] check = {0,0,0,0,0,0,0,0,0,0,0};
 	public static void main(String[] args) {
 //		int[] x = oneTofifty();
 //		int[] y = randomInt();
@@ -17,7 +18,6 @@ public class DeckOfCards {
 		return result+1;
 	}
 	public static void verifyRandomDice(){
-		int[] check = {0,0,0,0,0,0,0,0,0,0,0};
 			for(int i = 0; i < 100; i++){
 				int x = randomDice();
 				check[x-2]+=1;
