@@ -27,6 +27,7 @@ public class ArrayMethods {
 	    		if(arrayToSearch[i] == key){
 	    			return i;
 	    		}
+	    		
 	    	}
 	     return -1;
 	    }
