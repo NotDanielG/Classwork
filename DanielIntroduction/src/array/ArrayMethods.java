@@ -85,7 +85,7 @@ public class ArrayMethods {
 	    
 	    public static double[] sortList(double[] array){
 	    	double[] test = array;
-	    	
+	    	return test;
 	    }
 	    public static double[] getStats(double[] array){
 	        /** 
