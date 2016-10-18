@@ -6,6 +6,7 @@ public class ArrayMethods {
 	    int[] test1 = {7,6,5,4,3,1};
 	    double[] test2 = {4.33,4.22,4.11,4.55,3.99};
 	    System.out.println(getStats(test2)[2]);
+	    double[] test3 = sortList(test2);
 	     /**
 	      * IMPORTANT NOTE: 
 	      * This homework assignment will be weighted 4x.
@@ -83,6 +84,7 @@ public class ArrayMethods {
 	    }
 	    
 	    public static double[] sortList(double[] array){
+	    	double[] test = array;
 	    	
 	    }
 	    public static double[] getStats(double[] array){
