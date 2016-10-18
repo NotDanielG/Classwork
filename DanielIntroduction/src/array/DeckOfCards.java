@@ -52,6 +52,7 @@ public class DeckOfCards {
 		}
 		return val;
 	}
+	
 	public static void listCards(){
 		String[] numbers = {"Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"};
 		String[] suits = {"Diamond","Clubs","Hearts","Spades"};
