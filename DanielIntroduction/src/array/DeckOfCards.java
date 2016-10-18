@@ -9,7 +9,7 @@ public class DeckOfCards {
 //		for(int i = 0; i < 10; i++){
 //			System.out.println(randomDice());
 //		}
-//		listCards();
+		listCards();
 	}
 	
 	public static int PickNumber(int par){
