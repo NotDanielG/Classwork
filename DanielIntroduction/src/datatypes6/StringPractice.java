@@ -1,16 +1,8 @@
 package datatypes6;
 
 import java.util.Scanner;
-<<<<<<< HEAD
-=======
 
 public class StringPractice {
->>>>>>> branch 'master' of https://github.com/NotDanielG/Classwork.git
-
-<<<<<<< HEAD
-public class StringPractice {
-=======
->>>>>>> branch 'master' of https://github.com/NotDanielG/Classwork.git
 	static Scanner input;
 	static String user;
 	static int lineCount;
@@ -50,8 +42,6 @@ public class StringPractice {
 		print(user +" ,try inputing a String!");
 		String userInput = input.nextLine();
 		print("You typed: " + userInput);
-<<<<<<< HEAD
-=======
 	}
 	public static void print (String s){
 //		lineCount++;
@@ -88,47 +78,5 @@ public class StringPractice {
 		if(text1.equals(text2+text3)){
 			System.out.println("These strings are equal.");
 		}
->>>>>>> branch 'master' of https://github.com/NotDanielG/Classwork.git
 	}
-<<<<<<< HEAD
-	public static void print (String s){
-//		lineCount++;
-		
-		String printString = "";
-		int cutOff = 35;
-		while(s.length() > 0){
-			String currentLine = "";
-			String nextWord = "";
-			//while the currentLine and nextWord are less than the cutioff. Do the following loop. ass
-			while(currentLine.length() +nextWord.length() <= cutOff && s.length() > 0){
-				currentLine += nextWord;
-				s = s.substring(nextWord.length());
-				int endOfWord = s.indexOf(" ");
-				if(endOfWord == -1){
-					endOfWord = s.length()-1;
-				}
-				nextWord = s.substring(0, endOfWord+1);
-			}
-			printString += currentLine +"\n";
-		}
-		
-		System.out.println(printString);
-	}
-	private static void createAScanner() {
-		input = new Scanner(System.in);
-		
-	}
-	public static void demonstrateStringMethod(){
-		String text1 = "Hello World";
-		String text2 = "Hello ";
-		String text3 = "World";
-		
-		if(text1.equals(text2+text3)){
-			System.out.println("These strings are equal.");
-		}
-	}
-=======
-	
->>>>>>> branch 'master' of https://github.com/NotDanielG/Classwork.git
 }
-
