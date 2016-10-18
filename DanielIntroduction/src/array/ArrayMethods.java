@@ -82,7 +82,9 @@ public class ArrayMethods {
 	        return false;
 	    }
 	    
-	    
+	    public static double[] sortList(double[] array){
+	    	
+	    }
 	    public static double[] getStats(double[] array){
 	        /** 
 	         * This method return a double[] contain a WHOLE BUNCH of stats
