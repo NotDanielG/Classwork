@@ -5,8 +5,12 @@ public class ArrayMethods {
 	public static void main(String[] args) {
 	    int[] test1 = {7,6,5,4,3,1};
 	    double[] test2 = {4.33,4.22,4.11,4.55,3.99};
-	    System.out.println(getStats(test2)[2]);
-	    double[] test3 = sortList(test2);
+//	    System.out.println(test2[0]);
+//	    System.out.println(test2[1]);
+//	    double[] test3 = switchItems(test2, 0,1);
+//	    System.out.println(test3[0]);
+//	    System.out.println(test3[1]);
+	    
 	     /**
 	      * IMPORTANT NOTE: 
 	      * This homework assignment will be weighted 4x.
@@ -83,8 +87,16 @@ public class ArrayMethods {
 	        return false;
 	    }
 	    
-	    public static double[] sortList(double[] array){
+	    public static double[] mergeSort(double[] array){
 	    	double[] test = array;
+	    	
+	    	return test;
+	    }
+	    public static double[] switchItems(double[] array, int first, int second){
+	    	double[] test = array;
+	    	double save = test[first];
+	    	test[first] = test[second];
+	    	test[second] = save;
 	    	return test;
 	    }
 	    public static double[] getStats(double[] array){

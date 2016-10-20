@@ -2,6 +2,7 @@ package array;
 
 public class DeckOfCards {
 	static int[] check = {0,0,0,0,0,0,0,0,0,0,0};
+	static int[] results = {0};
 	public static void main(String[] args) {
 //		int[] x = oneTofifty();
 //		int[] y = randomInt();
@@ -9,7 +10,8 @@ public class DeckOfCards {
 //		for(int i = 0; i < 10; i++){
 //			System.out.println(randomDice());
 //		}
-		listCards();
+		verifyRandomDice();
+//		listCards();
 	}
 	
 	public static int PickNumber(int par){
@@ -23,7 +25,8 @@ public class DeckOfCards {
 				check[x-2]+=1;
 			}
 		for(int w = 0; w < check.length; w++){
-			System.out.println();
+			double temp = check[w];
+			System.out.println(temp);
 		}
 	}
 	
@@ -52,7 +55,11 @@ public class DeckOfCards {
 		}
 		return val;
 	}
-	
+	public static void populateResultsArray(int[] array){
+		for(int d = 0; d< check.length;d++){
+			results[check[d]-2]++;
+		}
+	}
 	public static void listCards(){
 		String[] numbers = {"Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten","Jack","Queen","King","Ace"};
 		String[] suits = {"Diamond","Clubs","Hearts","Spades"};
