@@ -5,12 +5,17 @@ public class ArrayMethods {
 	public static void main(String[] args) {
 	    int[] test1 = {7,6,5,4,3,1};
 	    double[] test2 = {4.33,4.22,4.11,4.55,3.99};
+	    double[] d = {4.32};
+	    double[] test3 = {5.33};
 //	    System.out.println(test2[0]);
 //	    System.out.println(test2[1]);
 //	    double[] test3 = switchItems(test2, 0,1);
 //	    System.out.println(test3[0]);
 //	    System.out.println(test3[1]);
-	    
+	    double[] test4 = merge(test3,d);
+	    for(int i = 0; i < test4.length;i++){
+	    	System.out.print(test4[i]+ " ");
+	    }
 	     /**
 	      * IMPORTANT NOTE: 
 	      * This homework assignment will be weighted 4x.
@@ -49,15 +54,18 @@ public class ArrayMethods {
 	    	int med = ((low + high)/2);
 	    	
 	    	while(inLoop){
+	    		
 	    		if(sortedArrayToSearch[med] == key){
 	    			inLoop = false;
 	    			return med;
 	    		}
 	    		else{
+	    		
 	    			if(low == high || low > high || high < low){
 	    				inLoop = false;
 	    			}
 	    			else{
+	    				
 		    			if(sortedArrayToSearch[med] < key){
 		    				high = med;
 		    				med = (low + high)/2;
@@ -86,19 +94,50 @@ public class ArrayMethods {
 	    	}
 	        return false;
 	    }
-	    
-	    public static double[] mergeSort(double[] array){
-	    	double[] test = array;
-	    	
-	    	return test;
+	    private static void shiffle(int[] arr){
+	    	for(int i = 0; i < arr.length; i++){
+	    		int random = (int)(Math.random()*6);
+	    		
+	    	}
 	    }
-	    public static double[] switchItems(double[] array, int first, int second){
+	    public static double[] swap(double[] array, int first, int second){
 	    	double[] test = array;
 	    	double save = test[first];
 	    	test[first] = test[second];
 	    	test[second] = save;
 	    	return test;
 	    }
+	    
+	    public static double[] getSublist(int a, int b, double[] array){
+	    	double[] test = new double[(b-a)+1];
+	    	for(int i = a; i < (b-a)+1;i++){
+	    		test[i] = array[i];
+	    	}
+	    	return test;
+	    }
+	    public static double[] merge(double[] a, double[] b){
+	    	double[] test = new double[(a.length + b.length)];
+	    	if(a.length == 0){
+	    		return b;
+	    	}
+	    	else{
+		    	if(b.length == 0){
+		    		return a;
+		    	}
+		    	else{
+		    		for(int i = 0; i < a.length;i++){
+		    			test[i] = a[i];
+		    		}
+		    		for(int c = a.length-1; c<(a.length - b.length)-1;c++){
+		    			test[c] = b[c];
+		    		}
+		    		
+		    	}
+	    	}
+	    	return test;
+	    	
+	    }
+	    
 	    public static double[] getStats(double[] array){
 	        /** 
 	         * This method return a double[] contain a WHOLE BUNCH of stats
