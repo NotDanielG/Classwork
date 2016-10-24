@@ -4,6 +4,7 @@ public class ArrayMethods {
 
 	public static void main(String[] args) {
 	    int[] test1 = {7,6,5,4,3,1};
+	    int[] arr = {0,9,6,3,4,3,8,9};
 	    double[] test2 = {4.33,4.22,4.11,4.55,3.99};
 	    double[] d = {4.32};
 	    double[] test3 = {5.33};
@@ -12,10 +13,11 @@ public class ArrayMethods {
 //	    double[] test3 = switchItems(test2, 0,1);
 //	    System.out.println(test3[0]);
 //	    System.out.println(test3[1]);
-	    double[] test4 = merge(test3,d);
-	    for(int i = 0; i < test4.length;i++){
-	    	System.out.print(test4[i]+ " ");
-	    }
+//	    double[] test4 = merge(test3,d);
+//	    for(int i = 0; i < test4.length;i++){
+//	    	System.out.print(test4[i]+ " ");
+//	    }
+	    System.out.println(longestConsecutiveSequence(arr));
 	     /**
 	      * IMPORTANT NOTE: 
 	      * This homework assignment will be weighted 4x.
@@ -194,6 +196,13 @@ public class ArrayMethods {
 	         * array = {-6, 16, 10, 9, 1, 5}
 	         * 
 	         * */
+	    	int[] test = new int[array.length];
+	    	int variable = array.length-1;
+	    	for(int i = array.length-1; i > -1; i--){
+	             test[(array.length-1)-variable] = array[i];
+	             variable--;
+	        }
+	    	array = test;
 	    }
 	    
 	    public static int countDifferences(int[] array1, int[] array2){
@@ -207,7 +216,13 @@ public class ArrayMethods {
 	         * countDifferences({1,2,3},{1,3,2}) returns 2, since '2' and '3' are both present, but different locations
 	         * 
 	         * */
-	         return 0;
+	    	int errors = 0;
+	    	for(int i = 0; i < array1.length; i++){
+	    		if(array1[i] != array2[i]){
+	    			errors++;
+	    		}
+	    	}
+	         return errors;
 	    }
 	    
 
@@ -221,8 +236,25 @@ public class ArrayMethods {
 	         * longestSequence({0,9,10,11,4,3,8,9}) returns '3', since '9,10,11' is 3 integers long
 	         * longestSequence({0,9,8,11,4,3,7,9}) returns '1', since there are no consecutive integers
 	         * */
-	        
-	        return 0;
+	    	int longest = 1;
+	    	int pos = 1;
+	        for(int i = 0; i < array1.length-1; i++){
+	        	if(i == (array1.length-1)){
+	        		return longest;
+	        	}
+	        	else{
+	        		if(pos > longest){
+	        			longest = pos;
+	        		}
+		        	if(array1[i]+1 == array1[i+1]){
+		        		pos++;	
+		        	}
+		        	else{
+		        		pos = 0;
+		        	}
+	        	}
+	        }
+	        return longest;
 	    }
 
 	    public static int longestSharedSequence(int[] array1, int[] array2){
@@ -275,6 +307,12 @@ public class ArrayMethods {
 	         * CHALLENGE
 	         * For extra credit, make your method handle NEGATIVE n
 	         * */
+	    	//0,1,2,3,4,5
+	    	//5,1,2,3,4,0
+	    	//4,1,2,3,5,0
+	    	//3,1,2,4,5,0
+	    	//2,1,3,4,5,0
+	    	//1,2,3,4,5,0
 	    }
 
 }
