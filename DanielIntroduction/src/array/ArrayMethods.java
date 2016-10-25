@@ -4,10 +4,8 @@ public class ArrayMethods {
 
 		public static void main(String[] args) {
 		    int[] test1 = {7,6,5,4,3,1};
-		    int[] arr = {0,9,6,3,4,3,8,9};
-		    double[] test2 = {4.33,4.22,4.11,4.55,3.99};
-		    double[] d = {4.32};
-		    double[] test3 = {5.33};
+		    int[] arr = {0,9,10,11,4,3,8,9};
+		    System.out.println(longestConsecutiveSequence(arr));
 		     /**
 		      * IMPORTANT NOTE: 
 		      * This homework assignment will be weighted 4x.
@@ -263,20 +261,7 @@ public class ArrayMethods {
 	    	int longest = 1;
 	    	int pos = 1;
 	        for(int i = 0; i < array1.length; i++){
-	        	if(i == (array1.length-1)){
-	        		return longest;
-	        	}
-	        	else{
-	        		if(pos > longest){
-	        			longest = pos;
-	        		}
-		        	if(array1[i]+1 == array1[i+1]){
-		        		pos++;	
-		        	}
-		        	else{
-		        		pos = 0;
-		        	}
-	        	}
+	        	
 	        }
 	        return longest;
 	    }
