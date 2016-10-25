@@ -8,10 +8,6 @@ public class ArrayMethods {
 		    double[] test2 = {4.33,4.22,4.11,4.55,3.99};
 		    double[] d = {4.32};
 		    double[] test3 = {5.33};
-		    d = getStats(test2);
-		    for(int i = 0; i < d.length; i++){
-		    	System.out.print(d[i]+ " ");
-		    }
 		     /**
 		      * IMPORTANT NOTE: 
 		      * This homework assignment will be weighted 4x.
@@ -36,7 +32,13 @@ public class ArrayMethods {
 	    	
 	     return -1;
 	    }
-	    
+	    public static int[] getSubArray(int[] arr, int startIndex, int endIndex){
+	    	int[] test = new int[(endIndex-startIndex)+1];
+	    		for(int i = startIndex; i < (endIndex-startIndex)+1;i++){
+	    			test[i] = arr[i];
+	    	 	}
+	       	return test;
+	    }
 	    public static int searchSorted(int[] sortedArrayToSearch, int key){
 	    /**
 	     * this method is exactly like the one above, except the parameter sortedArrayToSearch will
@@ -119,6 +121,29 @@ public class ArrayMethods {
 	    	}
 	    	return array;
 	    }
+	    public static boolean contains(int[] arr, int[] subArray){
+	    	boolean b1 = true;
+	    	for(int i = 0; i < arr.length; i++){
+	    		if(arr[i] == subArray[0]){
+//	    			int j=0;
+//	    			while(j < arr.length){
+//	    				if(arr[j] == subArray[j]){
+//	    					
+//	    				}
+//	    			}
+	    			for(int j = 0; j < subArray.length; j ++){
+	    				if(arr[i+j] != subArray[j]){
+	    					b1 = false;
+	    				}
+	    			}
+	    		}
+	    		if(b1 == true){
+	    			return true;
+	    		}
+	    	}
+	    	return false;
+	    }
+	    
 	    public static double[] getStats(double[] array){
 	        /** 
 	         * This method return a double[] contain a WHOLE BUNCH of stats
@@ -131,33 +156,31 @@ public class ArrayMethods {
 	         * index 5 = the number of values below the mean
 	         * */
 	    	//{4.33,4.22,4.11,4.55,3.99}
+	    	 
+	    	 double[] sortedList = selectionSort(array);
 	         double[] stats = new double[6];
 	         double sum = 0;
 	         for(int i = 0; i< array.length;i++){
 	        	sum += array[i];
 	         }
+	        
 	         stats[0] = sum/array.length;
 	         
-	         double max = array[0];
-	         for(int i = 0; i< array.length;i++){
-	        	 if(max < array[i]){
-	        		 max = array[i];
-	        	 }
+	         stats[1] = sortedList[sortedList.length-1];
+	       
+	         stats[2] = sortedList[0];
+	         
+	         if(sortedList.length % 2 == 0){
+	        	 double st = sortedList[(sortedList.length/2)-1];
+	        	 double nd = sortedList[(sortedList.length/2)];
+	        	 double x = (st+nd)/2;		        
+	        	 stats[3] = x;
+	        	 
 	         }
-	         stats[1] = max;
-	         
-	         double min = array[0];
-	         for(int i = 0; i< array.length;i++){
-	        	 if(min > array[i]){
-	        		 min = array[i];
-	        	 }
+	         else{
+	        	 stats[3] = sortedList[(int)(sortedList.length/2)]; 
 	         }
-	         stats[2] = min;
-	         
-	         double[] sortedList = new double[array.length];
-	         sortedList = selectionSort(array);
-	         stats[3] = sortedList[sortedList.length/2];
-	         
+	        
 	         int greater = 0;
 	         for(int i = 0; i < array.length; i++){
 	        	 if(sum/array.length <= array[i]){
@@ -177,7 +200,15 @@ public class ArrayMethods {
 	         
 	         return stats;
 	    }
-	    
+	    public static int countUnderBound(double[] arr, int d){
+	    	int ctr= 0;
+	    	for(int i = 0; i < arr.length;i++){
+	    		if(arr[i] < d){
+	    			ctr++;
+	    		}
+	    	}
+	    	return ctr;
+	    }
 	    public static void reverseOrder(int[] array){
 	        /**
 	         * this method reverses the order of the array passed to it.
