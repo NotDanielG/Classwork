@@ -259,9 +259,11 @@ public class ArrayMethods {
 	         * longestSequence({0,9,8,11,4,3,7,9}) returns '1', since there are no consecutive integers
 	         * */
 	    	int longest = 1;
-	    	int pos = 1;
+	    	int pos = 0;
 	        for(int i = 0; i < array1.length; i++){
-	        	
+	        	if(array1[i]+1 == array1[i+1]){
+	        		pos++; 
+	        	}
 	        }
 	        return longest;
 	    }
