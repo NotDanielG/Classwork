@@ -258,12 +258,23 @@ public class ArrayMethods {
 	         * longestSequence({0,9,10,11,4,3,8,9}) returns '3', since '9,10,11' is 3 integers long
 	         * longestSequence({0,9,8,11,4,3,7,9}) returns '1', since there are no consecutive integers
 	         * */
+	    	boolean inLoop = false;
 	    	int longest = 1;
 	    	int pos = 0;
 	        for(int i = 0; i < array1.length; i++){
 	        	if(array1[i]+1 == array1[i+1]){
 	        		pos++; 
+	        		inLoop = true;
 	        	}
+	        	else{
+	        		inLoop = false;
+	        		if(pos >= longest){
+	        			longest = pos;
+	        			pos = 0;
+	        		}
+	        				
+	        	}
+	        	
 	        }
 	        return longest;
 	    }
