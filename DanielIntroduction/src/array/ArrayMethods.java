@@ -4,7 +4,7 @@ public class ArrayMethods {
 
 		public static void main(String[] args) {
 		    int[] test1 = {7,6,5,4,3,1};
-		    int[] arr = {0,9,10,11,4,3,8,9};
+		    int[] arr = {0,9,8,11,4,3,7,9};
 		    System.out.println(longestConsecutiveSequence(arr));
 		     /**
 		      * IMPORTANT NOTE: 
@@ -260,8 +260,11 @@ public class ArrayMethods {
 	         * */
 	    	boolean inLoop = false;
 	    	int longest = 1;
-	    	int pos = 0;
+	    	int pos = 1;
 	        for(int i = 0; i < array1.length; i++){
+	        	if(i == array1.length-1){
+	        		break;
+	        	}
 	        	if(array1[i]+1 == array1[i+1]){
 	        		pos++; 
 	        		inLoop = true;
