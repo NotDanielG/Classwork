@@ -174,6 +174,7 @@ public class ArrayMethods {
 	         }
 	         stats[5] = lesser;
 	         
+	         
 	         return stats;
 	    }
 	    
