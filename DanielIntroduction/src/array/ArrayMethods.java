@@ -2,30 +2,24 @@ package array;
 
 public class ArrayMethods {
 
-	public static void main(String[] args) {
-	    int[] test1 = {7,6,5,4,3,1};
-	    int[] arr = {0,9,6,3,4,3,8,9};
-	    double[] test2 = {4.33,4.22,4.11,4.55,3.99};
-	    double[] d = {4.32};
-	    double[] test3 = {5.33};
-//	    System.out.println(test2[0]);
-//	    System.out.println(test2[1]);
-//	    double[] test3 = switchItems(test2, 0,1);
-//	    System.out.println(test3[0]);
-//	    System.out.println(test3[1]);
-//	    double[] test4 = merge(test3,d);
-//	    for(int i = 0; i < test4.length;i++){
-//	    	System.out.print(test4[i]+ " ");
-//	    }
-	    System.out.println(longestConsecutiveSequence(arr));
-	     /**
-	      * IMPORTANT NOTE: 
-	      * This homework assignment will be weighted 4x.
-	      * DO NOT ASSUME my tests are perfect! If you have code that you think should work, 
-	      * but you keep failing the tests PLEASE bring it to my attention so that I can fix the tests
-	      * DO NOT spend hours and hours trying to fix perfect code just because my test
-	      * says that it isn't perfect!
-	      * */
+		public static void main(String[] args) {
+		    int[] test1 = {7,6,5,4,3,1};
+		    int[] arr = {0,9,6,3,4,3,8,9};
+		    double[] test2 = {4.33,4.22,4.11,4.55,3.99};
+		    double[] d = {4.32};
+		    double[] test3 = {5.33};
+		    d = getStats(test2);
+		    for(int i = 0; i < d.length; i++){
+		    	System.out.print(d[i]+ " ");
+		    }
+		     /**
+		      * IMPORTANT NOTE: 
+		      * This homework assignment will be weighted 4x.
+		      * DO NOT ASSUME my tests are perfect! If you have code that you think should work, 
+		      * but you keep failing the tests PLEASE bring it to my attention so that I can fix the tests
+		      * DO NOT spend hours and hours trying to fix perfect code just because my test
+		      * says that it isn't perfect!
+		      * */
 	    }
 	    
 	    public static int searchUnsorted(int[] arrayToSearch, int key){
@@ -97,50 +91,34 @@ public class ArrayMethods {
 	    	}
 	        return false;
 	    }
-	    private static void shiffle(int[] arr){
-	    	for(int i = 0; i < arr.length; i++){
-	    		int random = (int)(Math.random()*6);
-	    		
-	    	}
+	    public static int[] swap(int[] array, int first, int second){
+	    	int[] test = array;
+	    	int save = test[first];
+	    	test[first] = test[second];
+	    	test[second] = save;
+	    	return test;
 	    }
-	    public static double[] swap(double[] array, int first, int second){
+	    public static double[] swap1(double[] array, int first, int second){
 	    	double[] test = array;
 	    	double save = test[first];
 	    	test[first] = test[second];
 	    	test[second] = save;
 	    	return test;
 	    }
-	    
-	    public static double[] getSublist(int a, int b, double[] array){
-	    	double[] test = new double[(b-a)+1];
-	    	for(int i = a; i < (b-a)+1;i++){
-	    		test[i] = array[i];
+	    public static double[] selectionSort(double[] array){	    	
+	    	for (int i = 0; i < array.length - 1; i++){
+	    	    int tempLowIndex = i;
+	    	    for (int j = i + 1; j < array.length; j++){
+	    	        if (array[j] < array[tempLowIndex]){
+	    	            tempLowIndex = j;
+	    	        }
+	    	    }
+	    	   if(tempLowIndex!=i){
+	    	         swap1(array, tempLowIndex, i);
+	    	   } 
 	    	}
-	    	return test;
+	    	return array;
 	    }
-	    public static double[] merge(double[] a, double[] b){
-	    	double[] test = new double[(a.length + b.length)];
-	    	if(a.length == 0){
-	    		return b;
-	    	}
-	    	else{
-		    	if(b.length == 0){
-		    		return a;
-		    	}
-		    	else{
-		    		for(int i = 0; i < a.length;i++){
-		    			test[i] = a[i];
-		    		}
-		    		for(int c = a.length-1; c<(a.length - b.length)-1;c++){
-		    			test[c] = b[c];
-		    		}
-		    		
-		    	}
-	    	}
-	    	return test;
-	    	
-	    }
-	    
 	    public static double[] getStats(double[] array){
 	        /** 
 	         * This method return a double[] contain a WHOLE BUNCH of stats
@@ -152,6 +130,7 @@ public class ArrayMethods {
 	         * index 4 = the number of values greater than or equal to the mean
 	         * index 5 = the number of values below the mean
 	         * */
+	    	//{4.33,4.22,4.11,4.55,3.99}
 	         double[] stats = new double[6];
 	         double sum = 0;
 	         for(int i = 0; i< array.length;i++){
@@ -175,10 +154,25 @@ public class ArrayMethods {
 	         }
 	         stats[2] = min;
 	         
+	         double[] sortedList = new double[array.length];
+	         sortedList = selectionSort(array);
+	         stats[3] = sortedList[sortedList.length/2];
 	         
+	         int greater = 0;
+	         for(int i = 0; i < array.length; i++){
+	        	 if(sum/array.length <= array[i]){
+	        		 greater+=1;
+	        	 }
+	         }
+	         stats[4] = greater;
 	         
-	         
-	         
+	         int lesser = 0;
+	         for(int i = 0; i < array.length; i++){
+	        	 if(sum/array.length > array[i]){
+	        		 lesser+=1;
+	        	 }
+	         }
+	         stats[5] = lesser;
 	         
 	         return stats;
 	    }
@@ -196,13 +190,11 @@ public class ArrayMethods {
 	         * array = {-6, 16, 10, 9, 1, 5}
 	         * 
 	         * */
-	    	int[] test = new int[array.length];
-	    	int variable = array.length-1;
-	    	for(int i = array.length-1; i > -1; i--){
-	             test[(array.length-1)-variable] = array[i];
-	             variable--;
-	        }
-	    	array = test;
+	    	int var = array.length-1;
+	    	for(int i = 0; i < (array.length/2); i++){
+	    		array = swap(array,i,i+var);
+	    		var-=2;
+	    	}
 	    }
 	    
 	    public static int countDifferences(int[] array1, int[] array2){
