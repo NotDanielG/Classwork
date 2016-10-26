@@ -3,8 +3,11 @@ package array;
 public class ArrayMethods {
 
 		public static void main(String[] args) {
-			int[] test1 = {0,9,8,11,4,3,7,9};
-			System.out.println(longestConsecutiveSequence(test1));
+			int[] test1 = {0,3,2,1,0};
+			int[] x = generateDistinctItemsList(5);
+			for(int i = 0; i < x.length; i++){
+				System.out.println(x[i]);
+			}
 			
 		     /**
 		      * IMPORTANT NOTE: 
@@ -298,9 +301,51 @@ public class ArrayMethods {
 	         * contains only entries between 1 and 2n (inclusive) and has no duplicates
 	         * 
 	         * */
-	        return null; 
+	    	int max = 2*n;
+	    	int[] array = new int[n];
+	    	int[] filler = new int[max];
+	    	for(int i = 1; i < max+1; i++){
+	    		filler[i-1] = i;
+	    	}
+	    	for(int i = 0; i < array.length; i++){
+	    		int idx = generateNumber(0,filler.length);
+	    		array[i] = filler[idx];
+	    		filler[idx]=0;
+	    		filler = removeZeroes(filler);
+	    	}
+	        return array; 
 	    }
-	    
+	    public static boolean isIn(int[] array, int value){
+	    	for(int i = 0; i < array.length; i++){
+	    		if(array[i]== value){
+	    			return true;
+	    		}
+	    	}
+	    	return false;
+	    }
+	    public static int[] removeZeroes(int[] array){
+	    	int zero = 0;
+	    	for(int i = 0; i < array.length;i++){
+	    		if(array[i] == 0){
+	    			zero++;
+	    		}
+	    	}
+	    	int[] test = new int[array.length - zero];
+	    	int idx = 0;
+	    	for(int i = 0; i < array.length; i++){
+	    		if(array[i] != 0){
+	    			test[idx] = array[i];
+	    			idx++;
+	    		}
+	    	}
+	    	
+	    	return test;
+	    }
+	    public static int generateNumber(int min, int max){
+			double rand = Math.random();
+			int result = (int)(rand*max)+min;
+			return result;
+		}
 	    
 	    public static void cycleThrough(int[] array, int n){
 	        /** This problem represents people moving through a line.
