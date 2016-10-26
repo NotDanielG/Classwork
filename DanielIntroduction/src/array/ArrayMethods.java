@@ -3,11 +3,10 @@ package array;
 public class ArrayMethods {
 
 		public static void main(String[] args) {
-			int[] test1 = {0,3,2,1,0};
-			int[] x = generateDistinctItemsList(5);
-			for(int i = 0; i < x.length; i++){
-				System.out.println(x[i]);
-			}
+			int[] test1 = {0,9,6,3,4,3,8,9};
+			int[] test2 = {1,2,9,6,3,4,3,6,7};
+			int x = longestSharedSequence(test1,test2);
+			
 			
 		     /**
 		      * IMPORTANT NOTE: 
@@ -288,9 +287,27 @@ public class ArrayMethods {
 	         * longestSequence({0,9,6,3,4,3,8,9}, {1,2,9,6,3,4,3,6,7}) returns '5', 
 	         *          since the sequence '9,6,3,4,3' is in both arrays and is 5 integers long, it doesn't matter that the sequence begins at different indices 
 	         * longestSequence({9,6,1,4,3,6,7,9}, {9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
-	         * */
-	        
-	        return 0;
+	         **/
+	    	//{0,9,6,3,4,3,8,9}
+	    	//{1,2,9,6,3,4,3,6,7}
+	    	
+	        int ctr = 0;
+	        int longest = 0;
+	        for(int i = 0; i < array1.length; i++){
+	        	if(ctr > longest){
+	        		longest = ctr;
+	        	}
+	        	for(int j = 0; j < array2.length; j++){
+	        		if(array1[i] == array2[j]){
+	        			ctr++;
+	        		}
+	        		else{
+	        			ctr = 0;
+	        		}
+	        	}
+	        	
+	        }
+	        return longest;
 	    }
 
 	    public static int[] generateDistinctItemsList(int n){
