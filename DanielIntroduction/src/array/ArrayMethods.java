@@ -3,8 +3,8 @@ package array;
 public class ArrayMethods {
 
 		public static void main(String[] args) {
-			int[] test1 = {0,9,6,3,4,3,8,9};
-			int[] test2 = {1,2,9,6,3,4,3,6,7};
+			int[] test1 = {9,6,1,4,3,6,7,9};
+			int[] test2 = {9,6,5,8,3,6,7,0};
 			int x = longestSharedSequence(test1,test2);
 			System.out.println(x);
 			
@@ -271,8 +271,7 @@ public class ArrayMethods {
 	        	}
 	        	if(pos >= longest){	
 	        		longest = pos;	
-	        	}		
-	        	
+	        	}
 	        }
 	        return longest;
 	    }
@@ -293,19 +292,20 @@ public class ArrayMethods {
 	    	
 	        int ctr = 0;
 	        int longest = 0;
-	        for(int i = 0; i < array1.length; i++){
-	        	if(ctr > longest){
-	        		longest = ctr;
-	        	}
+	        for(int i = 0; i < array1.length-1; i++){
 	        	for(int j = 0; j < array2.length; j++){
-	        		if(array1[i] == array2[j]){
+	        		if(array1[i+ctr] == array2[j]){
+	        			System.out.println("Number = " + (i + ctr));
 	        			ctr++;
 	        		}
 	        		else{
 	        			ctr = 0;
 	        		}
-	        	}
-	        	
+	        		if(ctr > longest){
+		        		longest = ctr;
+		        	}
+	        		System.out.println("Longest = " + longest);
+	        	}	
 	        }
 	        return longest;
 	    }
@@ -332,14 +332,7 @@ public class ArrayMethods {
 	    	}
 	        return array; 
 	    }
-	    public static boolean isIn(int[] array, int value){
-	    	for(int i = 0; i < array.length; i++){
-	    		if(array[i]== value){
-	    			return true;
-	    		}
-	    	}
-	    	return false;
-	    }
+	    
 	    public static int[] removeZeroes(int[] array){
 	    	int zero = 0;
 	    	for(int i = 0; i < array.length;i++){
