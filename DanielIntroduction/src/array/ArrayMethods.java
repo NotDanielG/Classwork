@@ -6,7 +6,7 @@ public class ArrayMethods {
 			int[] test1 = {0,9,6,3,4,3,8,9};
 			int[] test2 = {1,2,9,6,3,4,3,6,7};
 			int x = longestSharedSequence(test1,test2);
-			
+			System.out.println(x);
 			
 		     /**
 		      * IMPORTANT NOTE: 
