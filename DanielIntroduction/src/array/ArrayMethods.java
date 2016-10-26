@@ -3,9 +3,8 @@ package array;
 public class ArrayMethods {
 
 		public static void main(String[] args) {
-		    int[] test1 = {7,6,5,4,3,1};
-		    int[] arr = {0,9,8,11,4,3,7,9};
-		    System.out.println(longestConsecutiveSequence(arr));
+			int[] test1 = {1,2,3,4};
+			cycleOne(test1);
 		     /**
 		      * IMPORTANT NOTE: 
 		      * This homework assignment will be weighted 4x.
@@ -338,6 +337,20 @@ public class ArrayMethods {
 	    	//3,1,2,4,5,0
 	    	//2,1,3,4,5,0
 	    	//1,2,3,4,5,0
+	    	for(int i = 0; i < n; i++){
+	    		cycleOne(array);
+	    	}
 	    }
-
+	    public static void cycleOne(int[] array){
+	    	for(int i = 0; i < array.length-1;i++){
+	    		int save = array[i+1];
+	    		array[i+1] = array[i];
+	    		array[i] = save;
+	    	}
+	    	for(int i = 0; i < array.length;i++){
+	    		System.out.println(array[i]);
+	    	}
+	    }
+	    
+	 	    
 }
