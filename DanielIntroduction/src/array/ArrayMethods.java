@@ -3,8 +3,9 @@ package array;
 public class ArrayMethods {
 
 		public static void main(String[] args) {
-			int[] test1 = {1,2,3,4};
-			cycleOne(test1);
+			int[] test1 = {0,9,8,11,4,3,7,9};
+			System.out.println(longestConsecutiveSequence(test1));
+			
 		     /**
 		      * IMPORTANT NOTE: 
 		      * This homework assignment will be weighted 4x.
@@ -257,25 +258,18 @@ public class ArrayMethods {
 	         * longestSequence({0,9,10,11,4,3,8,9}) returns '3', since '9,10,11' is 3 integers long
 	         * longestSequence({0,9,8,11,4,3,7,9}) returns '1', since there are no consecutive integers
 	         * */
-	    	boolean inLoop = false;
 	    	int longest = 1;
 	    	int pos = 1;
-	        for(int i = 0; i < array1.length; i++){
-	        	if(i == array1.length-1){
-	        		break;
-	        	}
-	        	if(array1[i]+1 == array1[i+1]){
-	        		pos++; 
-	        		inLoop = true;
+	        for(int i = 0; i < array1.length-1; i++){	        	
+	        	if(array1[i]+1 == array1[i+1]){	
+	        		pos++;	        		
 	        	}
 	        	else{
-	        		inLoop = false;
-	        		if(pos >= longest){
-	        			longest = pos;
-	        			pos = 0;
-	        		}
-	        				
+	        		pos = 1;
 	        	}
+	        	if(pos >= longest){	
+	        		longest = pos;	
+	        	}		
 	        	
 	        }
 	        return longest;
