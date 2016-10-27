@@ -3,11 +3,12 @@ package array;
 public class ArrayMethods {
 
 		public static void main(String[] args) {
-			int[] test1 = {9,6,3,4,3,8,9};
-			int[] test2 = {9,6,3,4,3,8,9};
-			int[] test3 = {10,7,4,3,2,0};
-			int x = longestSharedSequence(test1,test2);
-			System.out.println(x);
+			int[] test1 = {0,1,2,3,4,5};
+			
+			int[] x = cycleBackOne(test1);
+			for(int i = 0; i < x.length; i++){
+				System.out.println(x[i]);
+			}
 			
 		     /**
 		      * IMPORTANT NOTE: 
@@ -279,7 +280,8 @@ public class ArrayMethods {
 	         * longestSequence({9,6,1,4,3,6,7,9}, {9,6,5,8,3,6,7,0}) returns '3', since the sequence '3,6,7' is in both arrays and is 3 integers long
 	         **/
 	    	//{0,9,6,3,4,3,8,9}
-	    	//{1,2,9,6,3,4,3,6,7}
+	    	//{1,2,9,6,3,4,3,6,9}
+	    	//0,1,2,3
 	    	
 	        int ctr = 0;
 	        int longest = 0;
@@ -365,14 +367,22 @@ public class ArrayMethods {
 	         * CHALLENGE
 	         * For extra credit, make your method handle NEGATIVE n
 	         * */
-	    	//0,1,2,3,4,5
+	    	//- 0,1,2,3,4,5
 	    	//5,1,2,3,4,0
 	    	//4,1,2,3,5,0
 	    	//3,1,2,4,5,0
 	    	//2,1,3,4,5,0
-	    	//1,2,3,4,5,0
-	    	for(int i = 0; i < n; i++){
-	    		cycleOne(array);
+	    	//- 1,2,3,4,5,0
+	    	if(n < 0){
+	    		n = n*-1;
+	    		for(int i = 0; i < n; i++){
+		    		cycleBackOne(array);
+		    	}
+	    	}
+		    else{
+		    	for(int i = 0; i < n; i++){
+		    		cycleOne(array);
+		    	}
 	    	}
 	    }
 	    public static void cycleOne(int[] array){
@@ -381,10 +391,21 @@ public class ArrayMethods {
 	    		array[i+1] = array[i];
 	    		array[i] = save;
 	    	}
-	    	for(int i = 0; i < array.length;i++){
-	    		System.out.println(array[i]);
-	    	}
+	    	
 	    }
+	    public static int[] cycleBackOne(int [] array){
+	    	// - 0,1,2,3,4,5 swap 0 5
+	    	// 5,1,2,3,4,0 swap 1 5
+	    	// 5,0,2,3,4,1 swap 2 5
+	    	// 5,0,1,3,4,2 swap 3 5
+	    	// 5,0,1,2,4,3 swap 4 5
+	    	// 5,0,1,2,3,4 
+	    	// - 5,0,1,2,3,4 
+	    	// swap (0,
+	    	for(int i = 0; i < array.length-1; i++){
+	    		swap(array,i,array.length-1);
+	    	}
+	    	return array;
 	    
-	 	    
+	    }
 }
