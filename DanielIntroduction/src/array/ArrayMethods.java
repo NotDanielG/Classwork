@@ -325,13 +325,7 @@ public class ArrayMethods {
 	    }
 	    
 	    public static int[] removeZeroes(int[] array){
-	    	int zero = 0;
-	    	for(int i = 0; i < array.length;i++){
-	    		if(array[i] == 0){
-	    			zero++;
-	    		}
-	    	}
-	    	int[] test = new int[array.length - zero];
+	    	int[] test = new int[array.length - 1];
 	    	int idx = 0;
 	    	for(int i = 0; i < array.length; i++){
 	    		if(array[i] != 0){
