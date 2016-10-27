@@ -393,6 +393,7 @@ public class ArrayMethods {
 	    	}
 	    	
 	    }
+	    
 	    public static int[] cycleBackOne(int [] array){
 	    	// - 0,1,2,3,4,5 swap 0 5
 	    	// 5,1,2,3,4,0 swap 1 5
@@ -408,4 +409,19 @@ public class ArrayMethods {
 	    	return array;
 	    
 	    }
+	    public static void popArr(int[] arr){
+	    	int[]randArr = new int[arr.length-1];
+	    	for(int i = 0; i < randArr.length; i++){
+	    		int toAdd = arr[generateNumber(0, arr.length)];
+	    		while(indexOf(randArr,toAdd)> -1){
+	    			toAdd = arr[1];
+	    		}
+	    		randArr[i]=toAdd;
+	    	}
+	    }
+
+		private static int indexOf(int[] randArr, int toAdd) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 }
