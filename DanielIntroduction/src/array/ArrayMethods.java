@@ -3,8 +3,9 @@ package array;
 public class ArrayMethods {
 
 		public static void main(String[] args) {
-			int[] test1 = {9,6,1,4,3,6,7,9};
-			int[] test2 = {9,6,5,8,3,6,7,0};
+			int[] test1 = {9,6,3,4,3,8,9};
+			int[] test2 = {9,6,3,4,3,8,9};
+			int[] test3 = {10,7,4,3,2,0};
 			int x = longestSharedSequence(test1,test2);
 			System.out.println(x);
 			
@@ -47,35 +48,25 @@ public class ArrayMethods {
 	     * 
 	     * Note: You should attempt to write a method that is more efficient that searchUnsorted
 	     * */
-	    	boolean inLoop = true;
-	    	int low = 0;
-	    	int high = sortedArrayToSearch.length;
-	    	int med = ((low + high)/2);
+	    	//Cannot get last #
+	    	int low = sortedArrayToSearch.length-1;
+	    	int high = 0;
 	    	
-	    	while(inLoop){
-	    		
+	    	while(high <= low){
+	    		int med = ((low + high)/2);
 	    		if(sortedArrayToSearch[med] == key){
-	    			inLoop = false;
 	    			return med;
 	    		}
 	    		else{
-	    		
-	    			if(low == high || low > high || high < low){
-	    				inLoop = false;
-	    			}
-	    			else{
-	    				
-		    			if(sortedArrayToSearch[med] < key){
-		    				high = med;
-		    				med = (low + high)/2;
-		    			}
-		    			else{
-		    				low = med;
-		    				med = (low + high)/2 ;
-		    			}
-	    			}
-	    		}	    			
+		    		if(sortedArrayToSearch[med] < key){
+		    			low = med - 1;
+		    		}
+		    		if(sortedArrayToSearch[med] > key){
+		    			high = med + 1;
+		    		}
+	    		}
 	    	}
+	    		
 	    	return -1;
 	    }
 	    
@@ -262,7 +253,7 @@ public class ArrayMethods {
 	         * */
 	    	int longest = 1;
 	    	int pos = 1;
-	        for(int i = 0; i < array1.length-1; i++){	        	
+	        for(int i = 0; i < array1.length-1; i++){
 	        	if(array1[i]+1 == array1[i+1]){	
 	        		pos++;	        		
 	        	}
@@ -292,19 +283,19 @@ public class ArrayMethods {
 	    	
 	        int ctr = 0;
 	        int longest = 0;
-	        for(int i = 0; i < array1.length-1; i++){
+	        for(int i = 0; i < array1.length; i++){
 	        	for(int j = 0; j < array2.length; j++){
-	        		if(array1[i+ctr] == array2[j]){
-	        			System.out.println("Number = " + (i + ctr));
-	        			ctr++;
-	        		}
-	        		else{
-	        			ctr = 0;
-	        		}
-	        		if(ctr > longest){
-		        		longest = ctr;
+	        		if((i + ctr) < array1.length){
+	        			if(array1[i+ctr] == array2[j]){
+		        			ctr++;
+		        		}
+		        		else{
+		        			ctr = 0;
+		        		}
+		        		if(ctr > longest){
+			        		longest = ctr;
+			        	}
 		        	}
-	        		System.out.println("Longest = " + longest);
 	        	}	
 	        }
 	        return longest;
