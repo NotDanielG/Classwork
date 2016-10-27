@@ -3,12 +3,9 @@ package array;
 public class ArrayMethods {
 
 		public static void main(String[] args) {
-			int[] test1 = {0,1,2,3,4,5};
+			int[] test1 = {2,3,4,5,6,};
+			testPrimes(50);
 			
-			int[] x = cycleBackOne(test1);
-			for(int i = 0; i < x.length; i++){
-				System.out.println(x[i]);
-			}
 			
 		     /**
 		      * IMPORTANT NOTE: 
@@ -19,7 +16,37 @@ public class ArrayMethods {
 		      * says that it isn't perfect!
 		      * */
 	    }
-	    
+	    public static void testPrimes(int numberToTest){
+	    	//Print out all prime #
+	    	int lastToCheck = (int) Math.sqrt((numberToTest));
+	    	boolean[] theNumbers = new boolean[numberToTest];
+	    	
+	    	for(int i = 0; i < numberToTest;i++){
+	    		theNumbers[i] = true;
+	    	}
+	    	theNumbers[0] = false;
+	    	theNumbers[1] = false;
+	    	int increment = 2;
+	    	boolean first = true;
+	    	for(int i = 2; i < numberToTest;i+=increment){
+	    		if(!first){
+	    			theNumbers[i] = false;
+	    		}
+	    		else{
+	    			first = false;
+	    		}
+	    	}
+	    	for(int i = 0; i < theNumbers.length; i++){
+	    		if(theNumbers[i]){
+	    			System.out.println(i + " is prime.");
+	    		}
+	    	}
+	    }
+	    public static void print(boolean[] array){
+	    	for(int i = 0; i < array.length; i++){
+	    		System.out.println(array[i]);
+	    	}
+	    }
 	    public static int searchUnsorted(int[] arrayToSearch, int key){
 	    /**
 	     * this method take an unsorted int array (arrayToSearch) and returns an 
@@ -409,6 +436,7 @@ public class ArrayMethods {
 	    	return array;
 	    
 	    }
+
 	    public static void popArr(int[] arr){
 	    	int[]randArr = new int[arr.length-1];
 	    	for(int i = 0; i < randArr.length; i++){
