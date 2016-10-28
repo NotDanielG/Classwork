@@ -26,15 +26,15 @@ public class ArrayMethods {
 	    	}
 	    	theNumbers[0] = false;
 	    	theNumbers[1] = false;
-	    	int increment = 2;
-	    	boolean first = true;
-	    	for(int i = 2; i < numberToTest;i+=increment){
-	    		if(!first){
-	    			theNumbers[i] = false;
-	    		}
-	    		else{
-	    			first = false;
-	    		}
+	    	
+	    	for(int prime = 2; prime <= lastToCheck;prime++){
+	    		int increment = prime;
+		    	if(theNumbers[prime]){
+			    	for(int test = prime+prime; test < numberToTest; test = test + increment){
+			    		theNumbers[test] = false;
+			    		System.out.println(prime +" is prime. Crossing off: " + test);
+			    	}
+		    	}
 	    	}
 	    	for(int i = 0; i < theNumbers.length; i++){
 	    		if(theNumbers[i]){
