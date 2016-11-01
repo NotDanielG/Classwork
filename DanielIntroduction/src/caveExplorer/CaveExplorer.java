@@ -17,5 +17,6 @@ public class CaveExplorer {
 		}
 		currentRoom = caves[0][1];
 		currentRoom.enter();
+		
 	}
 }
