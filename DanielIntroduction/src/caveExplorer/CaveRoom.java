@@ -29,7 +29,7 @@ public class CaveRoom {
 		}
 		setDirections();
 	}
-
+	
 	protected void setDirections() {
 		directions	= "";
 		if(doors[NORTH] == null && 
@@ -100,10 +100,6 @@ public class CaveRoom {
 	public String getDescription(){
 		return description+directions;
 	}
-
-	
-
-	
 	public Door getDoor(int dir){
 		return doors[dir];
 	}
@@ -111,6 +107,11 @@ public class CaveRoom {
 
 	public void setDescription(String string) {
 		description = string;
+	}
+
+	public void interpretInput(String input) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
