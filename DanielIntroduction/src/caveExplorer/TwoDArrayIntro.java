@@ -60,6 +60,15 @@ public class TwoDArrayIntro {
 		
 		
 		System.out.println(rand(0,3));
+		//top row is "_
+		for(int col = 1; col < pic[0].length; col++){
+			pic[0][col] = "_";
+			pic[pic.length-1][col] = "_";
+		}
+		for(int row = 1; row < pic.length; row++){
+			pic[row][0] = "|";
+			pic[row][pic[0].length-1] = "|";
+		}
 		printPic(pic);
 	}
 	public static int rand(int low, int high){
