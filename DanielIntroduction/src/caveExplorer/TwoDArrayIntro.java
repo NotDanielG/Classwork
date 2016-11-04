@@ -83,8 +83,17 @@ public class TwoDArrayIntro {
 	}
 	public static void printPic(String[][] pic){
 		for(int row = 0; row < pic.length; row++){
+			if(row == 0){
+				printTop(pic[0].length);
+				System.out.println("");
+			}
 			for(int col = 0; col < pic[row].length;col++){
-				System.out.print(pic[row][col]);
+				if(col == 0){
+					printCell(0);
+				}
+				else{
+					printCell(1);
+				}
 			}
 			System.out.println("");
 		}
