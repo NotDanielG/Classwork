@@ -28,10 +28,10 @@ public class CaveExplorer {
 //		inventory = new Inventory();
 //		startExploring();
 		
-		for(int row = 0; row < empty.length; row++){
-			for(int col = 0; col < empty[row].length; col++){
+		for(int row = 0; row < caves.length; row++){
+			for(int col = 0; col < caves[row].length; col++){
 				if(row == 0 && col == 0){
-					printTop(empty[0].length);
+					printTop(caves[0].length);
 					System.out.println("");
 				}
 				if(col == 0){
