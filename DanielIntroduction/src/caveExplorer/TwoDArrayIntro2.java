@@ -10,7 +10,12 @@ public class TwoDArrayIntro2 {
 	}
 
 	private static void printPic(String[][] field) {
-		// TODO Auto-generated method stub
+		for(int i =0; i< field.length;i++){
+			for(int j = 0; j<field[i].length;j++){
+				System.out.print(field[i][j]);
+			}
+			System.out.println("");
+		}
 		
 	}
 
@@ -27,17 +32,47 @@ public class TwoDArrayIntro2 {
 		}
 	}
 
-	private static String countAdjacent(boolean[][] mines, int r, int c) {
-		for(int row = r-1; row <= r+1; row++){
-			for(int col = c-1; col <= c+1; col++){
-				if(row !=r && col != c){
-					if(row >=0 && row < mines.length && col >= 0 && mines[0].length){
-						
-					}
-				}
-			}
+	private static String countAdjacent(boolean[][] mines, 
+			int r, int c) {
+		//r and c represent coordinates of element 
+		//we are providing a 
+		//String for
+		int count = 0;
+		//loop through row above to row below
+//		for(int row = r-1; row <= r+1; row++){
+//			//loop through col left to col right
+//			for(int col = c-1; col <= c+1; col++){
+//				//exclude this element when counting
+//				if(row !=r && col != c){ 
+//					if(row >=0 && row < mines.length && col >= 0 && col < mines[row].length){
+//						
+//					}
+//				}
+//			}
+//		}
+//		for(int row = 0; row < mines.length; row++){
+//			for(int col = 0; col < mines[row].length;col++){
+//				if((Math.abs(row - r) + Math.abs(col - c ) == 1 && mines[row][col])){
+//					count++;
+//					
+//				}
+//			}
+//		}
+		count += validAndTrue(mines,r-1,c);
+		count += validAndTrue(mines,r+1,c);
+		count += validAndTrue(mines,r,c-1);
+		count += validAndTrue(mines,r,c+1);
+		
+		
+		return count + "";
+	}
+
+	private static int validAndTrue(boolean[][] mines, int i, int j) {
+		//if mines[i][j] is put first, it will return error. make sure to check that it has valid index
+		if(i >= 0 && i<mines.length && j>=0 && j < mines[i].length && mines[i][j]){
+			return 1;
 		}
-		return null;
+		return 0;
 	}
 
 	private static void createMines(boolean[][] mines, int numberOfMines) {

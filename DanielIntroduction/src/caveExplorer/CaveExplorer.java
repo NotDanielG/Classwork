@@ -3,29 +3,67 @@ package caveExplorer;
 import java.util.Scanner;
 
 public class CaveExplorer {
-	public static CaveRoom caves[][];
-	public static Scanner in;
+
+	public static CaveRoom[][] caves;
+	private static Scanner in;
 	public static CaveRoom currentRoom;
 	private static Inventory inventory;
+	public static CaveRoom[][] empty;
+
 	
 	public static void main(String[] args){
 		in = new Scanner(System.in);
-
+		empty = new CaveRoom[2][2];
 		caves = new CaveRoom[5][5];
-		for(int i = 0; i < caves.length; i++){
-			for(int j = 0; j < caves[i].length; j++){
-				caves[i][j] = new CaveRoom("This cave has coordinates "+i+", "+j);
+//		for(int i = 0; i < caves.length; i++){
+//			for(int j = 0; j < caves[i].length; j++){
+//				caves[i][j] = new CaveRoom("This cave has coordinates "+i+", "+j);
+//			}
+//		}
+//		currentRoom = caves[0][1];
+//		currentRoom.enter();
+//		caves[0][1].setConnection(CaveRoom.EAST,caves[0][2],new Door());
+//		caves[0][2].setConnection(CaveRoom.SOUTH,caves[1][2],new Door());
+//		caves[1][2].setConnection(CaveRoom.SOUTH,caves[2][2],new Door());
+//		inventory = new Inventory();
+//		startExploring();
+		
+		for(int row = 0; row < empty.length; row++){
+			for(int col = 0; col < empty[row].length; col++){
+				if(row == 0 && col == 0){
+					printTop(empty[row].length);
+					System.out.println("");
+				}
+				if(col == 0){
+					printCell(0);
+				}
+				printCell(1);
 			}
+			System.out.println("");
 		}
-		currentRoom = caves[0][1];
-		currentRoom.enter();
-		caves[0][1].setConnection(CaveRoom.EAST,caves[0][2],new Door());
-		caves[0][2].setConnection(CaveRoom.SOUTH,caves[1][2],new Door());
-		caves[1][2].setConnection(CaveRoom.SOUTH,caves[2][2],new Door());
-		inventory = new Inventory();
-		startExploring();
 	}
-	private static void startExploring(){
+
+	private static void printTop(int i){
+		for(int j = 0; j < i+1; j++){
+			System.out.print("__");
+			
+		}
+	}
+	private static void printCell(int i) {
+		if(i == 0){
+			System.out.print("|");
+			System.out.print("__");
+			System.out.print("|");
+		}
+		else{
+			System.out.print("__");
+			System.out.print("|");
+		}
+	}
+
+
+	private static void startExploring() {
+		
 		while(true){
 			System.out.println(inventory.getDescription());
 			System.out.println(currentRoom.getDescription());
@@ -34,4 +72,7 @@ public class CaveExplorer {
 			currentRoom.interpretInput(input);
 		}
 	}
+	
+	
+	
 }

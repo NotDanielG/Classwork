@@ -29,7 +29,7 @@ public class CaveRoom {
 		}
 		setDirections();
 	}
-	
+
 	protected void setDirections() {
 		directions	= "";
 		if(doors[NORTH] == null && 
@@ -44,12 +44,11 @@ public class CaveRoom {
 				}
 			}
 		}
-	
 	}
 
 	private String toDirection(int dir) {
-		// TODO Auto-generated method stub
-		return null;
+		String[] directions = {"NORTH","EAST","SOUTH","WEST"};
+		return directions[dir];
 	}
 
 	public String getContents(){
@@ -110,7 +109,9 @@ public class CaveRoom {
 	}
 
 	public void interpretInput(String input) {
-		// TODO Auto-generated method stub
+		if(input.equals("w")){
+			
+		}
 		
 	}
 
