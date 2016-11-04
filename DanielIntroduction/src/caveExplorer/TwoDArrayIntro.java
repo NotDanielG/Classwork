@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class TwoDArrayIntro {
 
 	public static String[][] arr2D;
+	public static String[][] pic;
 	public static int i;
 	public static int j;
 	public static Scanner in;
@@ -13,7 +14,7 @@ public class TwoDArrayIntro {
 		int[] arr = {0,1,2,3,4,5,6,7};
 		//rows, columns
 		arr2D = new String[5][4];
-		
+		pic = new String[5][4];
 		for(int i = 0; i < arr2D.length; i++){
 			for(int j = 0; j < arr2D[i].length;j++){
 				arr2D[i][j] = "(" + i + "," + j + ")";
@@ -30,6 +31,7 @@ public class TwoDArrayIntro {
 	}
 	private static void startExploring(){
 		while(true){
+			printPic(pic);
 			System.out.println("You are in room "+  arr2D[i][j]);
 			System.out.println("What do you want to do?");
 			String input = in.nextLine();
