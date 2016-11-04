@@ -31,22 +31,23 @@ public class CaveExplorer {
 		for(int row = 0; row < empty.length; row++){
 			for(int col = 0; col < empty[row].length; col++){
 				if(row == 0 && col == 0){
-					printTop(empty[row].length);
+					printTop(empty[0].length);
 					System.out.println("");
 				}
 				if(col == 0){
 					printCell(0);
 				}
-				printCell(1);
+				else{
+					printCell(1);
+				}
 			}
 			System.out.println("");
 		}
 	}
 
 	private static void printTop(int i){
-		for(int j = 0; j < i+1; j++){
-			System.out.print("__");
-			
+		for(int j = 0; j < i; j++){
+			System.out.print(" __");
 		}
 	}
 	private static void printCell(int i) {
