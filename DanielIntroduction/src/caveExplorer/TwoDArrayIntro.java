@@ -24,7 +24,6 @@ public class TwoDArrayIntro {
 		i = 2;
 		j = 3;
 		
-		
 		in = new Scanner(System.in);
 		
 		startExploring();		
