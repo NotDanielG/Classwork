@@ -29,6 +29,22 @@ public class TwoDArrayIntro {
 		
 		startExploring();		
 	}
+	private static void printTop(int i){
+		for(int j = 0; j < i; j++){
+			System.out.print(" __");
+		}
+	}
+	private static void printCell(int i) {
+		if(i == 0){
+			System.out.print("|");
+			System.out.print("__");
+			System.out.print("|");
+		}
+		else{
+			System.out.print("__");
+			System.out.print("|");
+		}
+	}
 	private static void startExploring(){
 		while(true){
 			printPic(pic);
