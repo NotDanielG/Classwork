@@ -7,40 +7,60 @@ public class TwoDArrayIntro {
 
 	public static String[][] arr2D;
 	public static String[][] pic;
+	public static String[][] connect4;
+	public static boolean[][] test;
 	public static int i;
 	public static int j;
 	public static Scanner in;
 	public static void main(String[] args) {
-		int[] arr = {0,1,2,3,4,5,6,7};
-		//rows, columns
-		arr2D = new String[5][4];
-		pic = new String[5][4];
-		for(int i = 0; i < arr2D.length; i++){
-			for(int j = 0; j < arr2D[i].length;j++){
-				arr2D[i][j] = "(" + i + "," + j + ")";
+		in = new Scanner(System.in);
+		connect4 = new String[8][8];
+		test = new boolean[8][8];
+		
+		printPic(connect4);
+		placePiece();
+	}
+	public static void placePiece(){
+		while(true){
+			String input = in.nextLine();
+			int result = Integer.parseInt(input);
+			if(result > connect4.length-1 && result < 0){
+				System.out.println("Please put a number between 0 and 7.");
+			}
+			else{
+				for(int i = connect4.length-1; i >= 0; i--){
+					if(test[i][result] == false){
+						test[i][result] = true;
+						i = -1;
+					}
+				}
+				printPic(connect4);
 			}
 		}
-		
-		i = 2;
-		j = 3;
-		
-		in = new Scanner(System.in);
-		
-		startExploring();		
 	}
 	private static void printTop(int i){
 		for(int j = 0; j < i; j++){
 			System.out.print(" __");
 		}
 	}
-	private static void printCell(int i) {
+	private static void printCellC4(int i, int o) {
 		if(i == 0){
 			System.out.print("|");
-			System.out.print("__");
+			if(o == 0){
+				System.out.print(" X");
+			}
+			else{
+				System.out.print("__");
+			}
 			System.out.print("|");
 		}
 		else{
-			System.out.print("__");
+			if(o == 0){
+				System.out.print(" X");
+			}
+			else{
+				System.out.print("__");
+			}
 			System.out.print("|");
 		}
 	}
@@ -89,10 +109,20 @@ public class TwoDArrayIntro {
 			}
 			for(int col = 0; col < pic[row].length;col++){
 				if(col == 0){
-					printCell(0);
+					if(test[row][col]){
+						printCellC4(0,0);
+					}
+					else{
+						printCellC4(0,1);
+					}
 				}
 				else{
-					printCell(1);
+					if(test[row][col]){
+						printCellC4(1,0);
+					}
+					else{
+						printCellC4(1,1);
+					}
 				}
 			}
 			System.out.println("");
@@ -155,5 +185,19 @@ public class TwoDArrayIntro {
 //		}
 //		printPic(pic);
 		
+//		int[] arr = {0,1,2,3,4,5,6,7};
+//		//rows, columns
+//		arr2D = new String[5][4];
+//		pic = new String[5][4];
+//		for(int i = 0; i < arr2D.length; i++){
+//			for(int j = 0; j < arr2D[i].length;j++){
+//				arr2D[i][j] = "(" + i + "," + j + ")";
+//			}
+//		}
+//		
+//		i = 2;
+//		j = 3;
+//		
+//		startExploring();
 	}
 }

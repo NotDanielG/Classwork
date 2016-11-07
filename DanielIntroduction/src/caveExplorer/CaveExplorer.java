@@ -20,7 +20,7 @@ public class CaveExplorer {
 //				caves[i][j] = new CaveRoom("This cave has coordinates "+i+", "+j);
 //			}
 //		}
-//		currentRoom = caves[0][1];
+		currentRoom = caves[0][1];
 //		currentRoom.enter();
 //		caves[0][1].setConnection(CaveRoom.EAST,caves[0][2],new Door());
 //		caves[0][2].setConnection(CaveRoom.SOUTH,caves[1][2],new Door());
