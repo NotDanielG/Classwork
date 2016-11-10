@@ -30,39 +30,6 @@ public class CaveExplorer {
 		
 		
 	}
-
-	private static void printTop(int i){
-		for(int j = 0; j < i; j++){
-			System.out.print(" __");
-		}
-//		for(int row = 0; row < caves.length; row++){
-//			for(int col = 0; col < caves[row].length; col++){
-//				if(row == 0 && col == 0){
-//					printTop(caves[0].length);
-//					System.out.println("");
-//				}
-//				if(col == 0){
-//					printCell(0);
-//				}
-//				else{
-//					printCell(1);
-//				}
-//			}
-//			System.out.println("");
-//		}
-	}
-	private static void printCell(int i) {
-		if(i == 0){
-			System.out.print("|");
-			System.out.print("__");
-			System.out.print("|");
-		}
-		else{
-			System.out.print("__");
-			System.out.print("|");
-		}
-	}
-	
 	private static void startExploring() {
 		
 		while(true){
