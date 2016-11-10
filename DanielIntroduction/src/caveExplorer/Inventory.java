@@ -19,10 +19,13 @@ public class Inventory {
 			//three rows of text
 			for(int i =0; i < 3;i++){
 				//a row of text for each room
-				String text = "|";
+				String text = "";
 				for(CaveRoom cr: row){
 					if(cr.getDoor(CaveRoom.WEST) != null && cr.getDoor(CaveRoom.WEST).isOpen()){
-						text = " ";
+						text += " ";
+					}
+					else{
+						text+="|";
 					}
 					if(i == 0){
 						text+= "   ";

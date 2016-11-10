@@ -14,11 +14,12 @@ public class CaveExplorer {
 	public static void main(String[] args){
 		in = new Scanner(System.in);
 		caves = new CaveRoom[5][5];
-//		for(int i = 0; i < caves.length; i++){
-//			for(int j = 0; j < caves[i].length; j++){
-//				caves[i][j] = new CaveRoom("This cave has coordinates "+i+", "+j);
-//			}
-//		}
+		
+		for(int i = 0; i < caves.length; i++){
+			for(int j = 0; j < caves[i].length; j++){
+				caves[i][j] = new CaveRoom("This cave has coordinates "+i+", "+j);
+			}
+		}
 		currentRoom = caves[0][1];
 		currentRoom.enter();
 		caves[0][1].setConnection(CaveRoom.EAST,caves[0][2],new Door());
@@ -70,6 +71,7 @@ public class CaveExplorer {
 			System.out.println("What would you like to do?");
 			String input = in.nextLine();
 			currentRoom.interpretInput(input);
+			
 		}
 	}
 	
