@@ -5,7 +5,7 @@ public class Inventory {
 	private boolean hasMap;
 	private String map;
 	public Inventory(){
-		hasMap = true;
+		hasMap = false;
 		updateMap();
 	}
 	
@@ -66,7 +66,7 @@ public class Inventory {
 		return hasMap;
 	}
 
-	public void setMap(boolean b) {
+	public void setHasMap(boolean b) {
 		this.hasMap = b;
 	}
 
