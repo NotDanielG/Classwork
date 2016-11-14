@@ -24,11 +24,11 @@ public class TwoDArrayIntro {
 		while(true){
 			String input = in.nextLine();
 			int result = Integer.parseInt(input);
-			if(result > connect4.length-1 || result < 0){
+			if(result > test.length-1 || result < 0){
 				System.out.println("Please put a number between 0 and 7.");
 			}
 			else{
-				for(int i = connect4.length-1; i >= 0; i--){
+				for(int i = test.length-1; i >= 0; i--){
 					if(test[i][result] == false){
 						test[i][result] = true;
 						i = -1;
