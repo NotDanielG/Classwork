@@ -17,12 +17,12 @@ public class BasicSortMethods {
 		for(int i=0;i<arrayToSort.length;i++){
 		j=i;
 		jValue=arrayToSort[i];
-		for(int h=i;h<arrayToSort.length;h++){
-		if(arrayToSort[h]<jValue){
-		jValue=arrayToSort[h];
-		j=h;
-		}
-		}
+			for(int h=i;h<arrayToSort.length;h++){
+				if(arrayToSort[h]<jValue){
+				jValue=arrayToSort[h];
+				j=h;
+				}
+			}
 		int placeHolder=arrayToSort[j];
 		arrayToSort[j]=arrayToSort[i];
 		arrayToSort[i]=placeHolder;
