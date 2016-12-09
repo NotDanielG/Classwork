@@ -27,7 +27,7 @@ public class Screen {
 		g.fillRect(0,0,image.getWidth(),image.getHeight());
 		g.setColor(Color.black);
 		g.drawString("Hello World!",  49, 100);
-		g.drawOval(20, 60, 100, 50);
+		g.drawOval(30, 70, 100, 50);
 	}
 
 }
