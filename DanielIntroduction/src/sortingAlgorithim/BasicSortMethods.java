@@ -3,13 +3,32 @@ package sortingAlgorithim;
 import java.util.Arrays;
 public class BasicSortMethods {
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		int[] arrayToSort={133,0,-5,31,12,12,2};
-		System.out.println("- - - SELECTION SORT - - -");
-		System.out.println(Arrays.toString(arrayToSort));
-		selectionSort(copy(arrayToSort));
+//		int[] arrayToSort={133,0,-5,31,12,12,2};
+//		System.out.println("- - - SELECTION SORT - - -");
+//		System.out.println(Arrays.toString(arrayToSort));
+//		selectionSort(copy(arrayToSort));
+		int[] arrayToSort={2,1,0,16,8,15};
+		mysterySort1(arrayToSort);
 	}
 
+	public static void mysterySort1(int[] arrayToSort){
+		int j=0;
+		int jValue=arrayToSort[0];
+		for(int i=0;i<arrayToSort.length;i++){
+		j=i;
+		jValue=arrayToSort[i];
+		for(int h=i;h<arrayToSort.length;h++){
+		if(arrayToSort[h]<jValue){
+		jValue=arrayToSort[h];
+		j=h;
+		}
+		}
+		int placeHolder=arrayToSort[j];
+		arrayToSort[j]=arrayToSort[i];
+		arrayToSort[i]=placeHolder;
+		System.out.println(Arrays.toString(arrayToSort));
+		}
+	}
 	public static int[] copy(int[] arr){
 		int[] copy = new int[arr.length];
 		for(int i = 0; i < copy.length; i++){
@@ -25,7 +44,7 @@ public class BasicSortMethods {
 		arr[i]=placeHolder;
 		System.out.println(Arrays.toString(arr));
 	}
-
+	
 	public static void selectionSort(int[] arrayToSort){
 		//search the array for the smallest value...
 		int minIndex=0;
@@ -76,6 +95,93 @@ public class BasicSortMethods {
 				}
 			}
 			//keep doing that repeatedly, eventually the largest values will "float" to the top
+		}
+	}
+	public static int[] mergeSort(int[] arrayToSort){
+		int n = arrayToSort.length;
+
+		if(n<=1){
+			//trivial sort when only one (or no) element
+			//is in the array
+			return arrayToSort;
+		}else{	
+			//split the array in half
+			int[] partA = new int[n/2];
+			//be careful of rounding!
+			int[] partB = new int[n-n/2];
+			for(int i=0; i<n; i++){
+				if(i<partA.length){
+					partA[i]=arrayToSort[i];
+				}else{
+					partB[i-partA.length]=arrayToSort[i];
+				}
+			}
+			return merge(mergeSort(partA),mergeSort(partB));
+		}
+	}
+
+	public static int[] merge(int[] partA, int[] partB){
+		System.out.println("Merging "+Arrays.toString(partA)+ " and "+Arrays.toString(partB));
+		int aIndex = 0;
+		int bIndex = 0;
+		int[] merge = new int[partA.length + partB.length];
+		//merge index
+		int i = 0;
+		//compare first element in each array, take the smaller of the two
+		while(aIndex < partA.length && bIndex < partB.length){
+			if(partA[aIndex] < partB[bIndex]){
+				merge[i]=partA[aIndex];
+				aIndex++;
+				i++;
+			}else{
+				merge[i]=partB[bIndex];
+				bIndex++;
+				i++;
+			}
+		}
+		//add leftovers
+		while(aIndex < partA.length){
+			merge[i]=partA[aIndex];
+			aIndex++;
+			i++;
+		}
+		while(bIndex < partB.length){
+			merge[i]=partB[bIndex];
+			bIndex++;
+			i++;
+		}
+		System.out.println("...Result: "+Arrays.toString(merge));
+		return merge;
+	}
+	
+	
+	//since quickSort is recursive, the start and end must be specified 
+	//(to break it down through recursive calls)
+	public static void quickSort(int[] arrayToSort, int start, int end){
+		//trivial case is when the array is empty or contains one element
+		//sort only if this is not the case, (otherwise nothing is done)
+		if(start<end){			
+			//choose the pivot from the end
+			int pivot = arrayToSort[end];
+			System.out.println("PIVOT "+pivot);
+			//pIndex is the index where the pivot will go at the end.
+			//It is also the number of elements SMALLER than the pivot
+			//(note: pivot cannot be smaller than start, since this is only
+			//sorting elements after start)
+			int pIndex = start;
+			//compare every element to the pivot
+			for(int i=start; i<end; i++){
+				if(arrayToSort[i]<pivot){
+					swap(arrayToSort,i,pIndex);
+					//pIndex increases because there is another element smaller than the pivot
+					pIndex++;
+				}
+			}
+			//now put the pivot in the correct spot
+			swap(arrayToSort,pIndex, end);
+			//and sort the elements on the left and right of the pivot
+			if(start<pIndex-1)quickSort(arrayToSort, start, pIndex-1);
+			if(pIndex-1 < end)quickSort(arrayToSort, pIndex+1, end);
 		}
 	}
 }
