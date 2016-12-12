@@ -5,7 +5,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
-public class Screen {
+public abstract class Screen {
 	private BufferedImage image;
 	
 	public Screen(int width, int height) {
@@ -20,14 +20,20 @@ public class Screen {
 	public BufferedImage getImage(){
 		return image;
 	}
+	public int getWidth(){
+		return image.getWidth();
+	}
+	public int getHeight(){
+		return image.getHeight();
+	}
 	public void update() {
 		Graphics2D g = image.createGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(Color.pink);
 		g.fillRect(0,0,image.getWidth(),image.getHeight());
 		g.setColor(Color.black);
-		g.drawString("Hello World!",  49, 100);
-		g.drawOval(30, 70, 100, 50);
+//		g.drawString("Hello World!",  49, 100);
+//		g.drawOval(30, 70, 100, 50);
 	}
 
 }
