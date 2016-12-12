@@ -17,10 +17,10 @@ public abstract class GUIApplication extends JFrame{
 		setVisible(true);
 	}
 	public abstract void initScreen();
-	public static void main(String[] args){
+//	public static void main(String[] args){
 //		new GUIApplication(800,600);
 //		new Screen(800,600);
-	}
+//	}
 	public void paint(Graphics g){
 		g.drawImage(currentScreen.getImage(),0,0,null);
 	}
