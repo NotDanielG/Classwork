@@ -13,7 +13,7 @@ public class CoordinateScreen extends Screen {
 	}
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		TextLabel text = new TextLabel(20,200,500,40,"Some text");
+		TextLabel text = new TextLabel(20,200,500,400,"Some text");
 		
 	}
 

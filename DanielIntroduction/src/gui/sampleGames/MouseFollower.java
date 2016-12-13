@@ -7,13 +7,16 @@ public class MouseFollower extends GUIApplication {
 	//Declaration
 	//Arrays: int<-Primitve Type [] numbs
 	//ArrayList: ArrayList<Integer> <---Wrapper Class*\ numbs
+	
 	//Instantiation numbs
 	//Arrays:new int[5]
 	//ArrayList:nums = new ArrayList<Integer>()
+	
 	//Adding Items
 	//num[i] = 4
 	//nums.add(new Integer(5))
 	//Appends to list
+	
 	private CoordinateScreen cs;
 	
 	public MouseFollower(int width, int height) {
@@ -25,6 +28,7 @@ public class MouseFollower extends GUIApplication {
 		setScreen(cs);
 		
 	}
+	
 	public static void main(String[] args) {
 		new MouseFollower(800,600);
 		
