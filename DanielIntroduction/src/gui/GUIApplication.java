@@ -13,6 +13,7 @@ public abstract class GUIApplication extends JFrame{
 		setBounds(20,20,width,height);
 		//20,20 = coordinates it appears
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//Calls it in MouseFollower
 		initScreen();
 		setVisible(true);
 	}

@@ -17,10 +17,11 @@ public class TextLabel extends Components {
 		this.text = text;
 		this.font = "Helvetica";
 		this.size = 20;
+		update();
 	}
 	
 	public void update(Graphics2D g) {
-		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
+		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setColor(Color.black);
 		g.setFont(new Font(font,Font.PLAIN,size));
 		if(text!=null){
@@ -34,22 +35,27 @@ public class TextLabel extends Components {
 
 	public void setText(String text) {
 		this.text = text;
+		update();
 	}
 
 	public String getFont() {
 		return font;
+		
 	}
 
 	public void setFont(String font) {
 		this.font = font;
+		update();
 	}
 
 	public int getSize() {
 		return size;
+		
 	}
 
 	public void setSize(int size) {
 		this.size = size;
+		update();
 	}
 
 }

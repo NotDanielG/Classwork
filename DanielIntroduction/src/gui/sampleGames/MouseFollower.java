@@ -25,11 +25,9 @@ public class MouseFollower extends GUIApplication {
 		setScreen(cs);
 		
 	}
-
-
 	public static void main(String[] args) {
 		new MouseFollower(800,600);
-
+		
 	}
 
 }

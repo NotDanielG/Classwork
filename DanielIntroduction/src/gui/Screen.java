@@ -35,10 +35,13 @@ public abstract class Screen {
 	public void update() {
 		Graphics2D g = image.createGraphics();
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
-		g.setColor(Color.pink);
+		g.setColor(Color.white);
 		g.fillRect(0,0,image.getWidth(),image.getHeight());
-		for(int i = 0; i <viewObjects.size();i++){
-			
+//		for(int i = 0; i <viewObjects.size();i++){
+//			
+//		}
+		for(Visible v: viewObjects){
+			g.drawImage(v.getImage(), v.getx(), v.gety(),null);
 		}
 //		g.setColor(Color.black);
 //		g.drawString("Hello World!",  49, 100);
