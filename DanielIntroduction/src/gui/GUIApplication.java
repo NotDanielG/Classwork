@@ -16,6 +16,7 @@ public abstract class GUIApplication extends JFrame{
 		initScreen();
 		setVisible(true);
 	}
+
 	public abstract void initScreen();
 //	public static void main(String[] args){
 //		new GUIApplication(800,600);

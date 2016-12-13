@@ -4,17 +4,23 @@ import gui.GUIApplication;
 import gui.screens.CoordinateScreen;
 
 public class MouseFollower extends GUIApplication {
-	
+	//Declaration
+	//Arrays: int<-Primitve Type [] numbs
+	//ArrayList: ArrayList<Integer> <---Wrapper Class*\ numbs
+	//Instantiation numbs
+	//Arrays:new int[5]
+	//ArrayList:nums = new ArrayList<Integer>()
+	//Adding Items
+	//num[i] = 4
+	//nums.add(new Integer(5))
+	//Appends to list
 	private CoordinateScreen cs;
 	
 	public MouseFollower(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
 	}
 
-	@Override
 	public void initScreen() {
-		// TODO Auto-generated method stub
 		cs = new CoordinateScreen(getWidth(), getHeight());
 		setScreen(cs);
 		
