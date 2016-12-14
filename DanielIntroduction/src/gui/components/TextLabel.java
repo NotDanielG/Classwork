@@ -25,7 +25,7 @@ public class TextLabel extends Components {
 		g.setColor(Color.black);
 		g.setFont(new Font(font,Font.PLAIN,size));
 		if(text!=null){
-			g.drawString(this.getText(), getx()+15, this.gety()+10);
+			g.drawString(this.getText(), getx()+getWidth()/4, gety()+getHeight()/3);
 		}
 	}
 

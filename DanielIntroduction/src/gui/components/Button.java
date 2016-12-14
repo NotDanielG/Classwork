@@ -5,7 +5,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 
-public class Button extends TextLabel {
+public class Button extends TextLabel implements Clickable{
 	private Color color;
 	private Action action;
 	public Button(int x, int y, int w, int h, String text, Color color, Action action) {
@@ -17,12 +17,20 @@ public class Button extends TextLabel {
 	public void update(Graphics2D g) {
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setColor(color);
-		g.fillRoundRect(getx(), gety()-50, 125, 100,25,35);
-		g.drawRoundRect(getx(), gety()-50, 125, 100, 25, 35);
+//		g.fillRoundRect(getx(), gety()-50, 125, 100,25,35);
+//		g.drawRoundRect(getx(), gety()-50, 125, 100,25,35);
+		g.fillRoundRect(0, 0,getWidth(), getHeight(),25,35);
+		g.drawRoundRect(1,1,getWidth()-2, getHeight()-2,25,35);
 		super.update(g);
-//		g.setFont(new Font(getFont(),Font.PLAIN,getSize()));
-//		if(this.getText()!=null){
-//			g.drawString(this.getText(), getx()+15, this.gety()+10);
-//		}
+	}
+	public boolean isHovered(int x, int y) {
+		if(x > getx() && x < getx()+getWidth() && y > gety() && y < gety()+getHeight()){
+			return true;
+		}
+		return false;
+	}
+	public void act() {
+		// TODO Auto-generated method stub
+		
 	}
 }
