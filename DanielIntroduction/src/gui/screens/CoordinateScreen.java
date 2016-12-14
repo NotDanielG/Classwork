@@ -1,8 +1,10 @@
 package gui.screens;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import gui.Screen;
+import gui.components.Button;
 import gui.components.TextLabel;
 import gui.components.Visible;
 
@@ -13,8 +15,10 @@ public class CoordinateScreen extends Screen {
 	}
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		TextLabel text = new TextLabel(20,200,500,40,"Some text");
-		viewObjects.add(text);
+//		TextLabel text = new TextLabel(20,200,500,40,"Some text");
+//		viewObjects.add(text);
+		Button button = new Button(20,200, 500,400,"The Button", Color.pink, null);
+		viewObjects.add(button);
 	}
 
 }
