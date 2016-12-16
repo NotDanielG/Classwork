@@ -43,6 +43,42 @@ public abstract class Components implements Visible{
 		return false;
 	}
 
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getW() {
+		return w;
+	}
+
+	public void setW(int w) {
+		this.w = w;
+	}
+
+	public int getH() {
+		return h;
+	}
+
+	public void setH(int h) {
+		this.h = h;
+	}
+
+	public void setImage(BufferedImage image) {
+		this.image = image;
+	}
+
 	public void update() {
 		update(image.createGraphics());
 	}

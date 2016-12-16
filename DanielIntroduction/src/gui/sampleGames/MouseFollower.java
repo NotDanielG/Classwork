@@ -4,6 +4,7 @@ import gui.GUIApplication;
 import gui.screens.CoordinateScreen;
 
 public class MouseFollower extends GUIApplication {
+	public static MouseFollower game;
 	//Declaration
 	//Arrays: int<-Primitve Type [] numbs
 	//ArrayList: ArrayList<Integer> <---Wrapper Class*\ numbs
@@ -30,8 +31,9 @@ public class MouseFollower extends GUIApplication {
 	}
 	
 	public static void main(String[] args) {
-		new MouseFollower(800,600);
-		
+		game = new MouseFollower(800,600);
+		Thread app = new Thread(game);
+		app.start();
 	}
 
 }

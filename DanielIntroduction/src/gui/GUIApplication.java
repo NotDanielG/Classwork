@@ -1,12 +1,13 @@
 package gui;
 
 import java.awt.Graphics;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
 import gui.screens.CoordinateScreen;
 
-public abstract class GUIApplication extends JFrame{
+public abstract class GUIApplication extends JFrame implements Runnable{
 	private Screen currentScreen;
 	public GUIApplication(int width, int height){
 		super();
@@ -27,9 +28,33 @@ public abstract class GUIApplication extends JFrame{
 		g.drawImage(currentScreen.getImage(),0,0,null);
 	}
 
-	public void setScreen(CoordinateScreen cs2) {
-		// TODO Auto-generated method stub
-		this.currentScreen = cs2;
+	public void setScreen(CoordinateScreen cs) {
+		if(currentScreen!=null){
+			MouseListener ml = currentScreen.getMouseListener();
+			if(ml != null){
+				removeMouseListener(ml);
+			}
+			MouseListener mml = currentScreen.getMouseListener();
+			if(mml!=null){
+				removeMouseListener(mml);
+			}
+		}
+		this.currentScreen = cs;
+		if(currentScreen != null){
+			addMouseListener(currentScreen.getMouseListener());
+			addMouseMotionListener(currentScreen.getMouseMotionListener());
+		}
 	}
-
+	public void run(){
+		while(true){
+			currentScreen.update();
+			repaint();
+			try {
+				Thread.sleep(30);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
 }

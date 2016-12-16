@@ -3,6 +3,8 @@ package gui;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -37,15 +39,20 @@ public abstract class Screen {
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,RenderingHints.VALUE_ANTIALIAS_ON);
 		g.setColor(Color.white);
 		g.fillRect(0,0,image.getWidth(),image.getHeight());
-//		for(int i = 0; i <viewObjects.size();i++){
-//			
-//		}
 		for(Visible v: viewObjects){
 			g.drawImage(v.getImage(), v.getx(), v.gety(),null);
 		}
 //		g.setColor(Color.black);
 //		g.drawString("Hello World!",  49, 100);
 //		g.drawOval(30, 70, 100, 50);
+	}
+	public MouseMotionListener getMouseMotionListener(){
+		
+		return null;
+	}
+	public MouseListener getMouseListener(){
+		
+		return null;
 	}
 
 }
