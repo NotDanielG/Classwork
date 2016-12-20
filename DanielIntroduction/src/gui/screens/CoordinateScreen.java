@@ -29,8 +29,8 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 			}
 		});
 		viewObjects.add(button);
-		textA = new TextArea(40,85,550,500,
-				"This is a whole paragraph. Notice how as the paragraph gets to the edge of the page, a new line is created.");
+		textA = new TextArea(40,85,550,500,"This is a whole paragraph. Notice how as the paragraph gets to the edge of the page,"
+				+ " a new line is created.");
 		viewObjects.add(textA);
 	}
 	public void mouseDragged(MouseEvent event) {
