@@ -8,12 +8,14 @@ import java.util.ArrayList;
 import gui.Screen;
 import gui.components.Action;
 import gui.components.Button;
+import gui.components.TextArea;
 import gui.components.TextLabel;
 import gui.components.Visible;
 
 public class CoordinateScreen extends Screen implements MouseMotionListener{
 	private TextLabel text;
 	private Button button;
+	private TextArea textA;
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
 	}
@@ -27,6 +29,9 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 			}
 		});
 		viewObjects.add(button);
+		textA = new TextArea(40,85,550,500,
+				"This is a whole paragraph. Notice how as the paragraph gets to the edge of the page, a new line is created.");
+		viewObjects.add(textA);
 	}
 	public void mouseDragged(MouseEvent event) {
 		
