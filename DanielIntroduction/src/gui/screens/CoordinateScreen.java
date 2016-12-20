@@ -29,7 +29,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 			}
 		});
 		viewObjects.add(button);
-		textA = new TextArea(40,85,550,100,"This is a whole paragraph. Notice how as the paragraph gets to the edge of the page,"
+		textA = new TextArea(40,200,550,100,"This is a whole paragraph. Notice how as the paragraph gets to the edge of the page,"
 				+ " a new line is created.");
 		viewObjects.add(textA);
 	}
