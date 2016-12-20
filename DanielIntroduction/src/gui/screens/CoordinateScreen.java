@@ -11,11 +11,13 @@ import gui.components.Button;
 import gui.components.TextArea;
 import gui.components.TextLabel;
 import gui.components.Visible;
+import sampleImages.Graphic;
 
 public class CoordinateScreen extends Screen implements MouseMotionListener{
 	private TextLabel text;
 	private Button button;
 	private TextArea textA;
+	private Graphic kol;
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
 	}
@@ -32,6 +34,8 @@ public class CoordinateScreen extends Screen implements MouseMotionListener{
 		textA = new TextArea(40,200,550,100,"This is a whole paragraph. Notice how as the paragraph gets to the edge of the page,"
 				+ " a new line is created.");
 		viewObjects.add(textA);
+		kol=new Graphic(30,30,.5,"resources/sampleImages/kol.png");
+		viewObjects.add(kol);
 	}
 	public void mouseDragged(MouseEvent event) {
 		
