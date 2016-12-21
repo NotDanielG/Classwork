@@ -5,6 +5,7 @@ import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 
+import gui.sampleGames.MyScreen;
 import gui.screens.CoordinateScreen;
 
 public abstract class GUIApplication extends JFrame implements Runnable{
@@ -28,7 +29,7 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 		g.drawImage(currentScreen.getImage(),0,0,null);
 	}
 
-	public void setScreen(CoordinateScreen cs) {
+	public void setScreen(Screen screen) {
 		if(currentScreen!=null){
 			MouseListener ml = currentScreen.getMouseListener();
 			if(ml != null){
@@ -39,7 +40,7 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 				removeMouseListener(mml);
 			}
 		}
-		this.currentScreen = cs;
+		this.currentScreen = screen;
 		if(currentScreen != null){
 			addMouseListener(currentScreen.getMouseListener());
 			addMouseMotionListener(currentScreen.getMouseMotionListener());
