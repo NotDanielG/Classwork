@@ -28,6 +28,7 @@ public class CoordinateScreen extends Screen implements MouseListener{
 		text = new TextLabel(20,200,500,40,"Some text");
 		viewObjects.add(text);
 		button = new Button(20,100, 100,40,"The Button", Color.orange, new Action(){
+			@Override
 			public void act(){
 				MouseFollower.game.setScreen(MouseFollower.screen);
 			}
@@ -55,7 +56,6 @@ public class CoordinateScreen extends Screen implements MouseListener{
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(button.isHovered(e.getX(), e.getY())){
-			System.out.println("Hi");
 			button.act();
 		}
 	}

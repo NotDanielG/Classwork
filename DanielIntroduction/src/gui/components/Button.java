@@ -41,8 +41,7 @@ public class Button extends TextLabel implements Clickable{
 		update();
 	}
 	public void act() {
-		// TODO Auto-generated method stub
-		
+		this.action.act();
 	}
 //	public void update(Graphics2D g) {
 //	g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
