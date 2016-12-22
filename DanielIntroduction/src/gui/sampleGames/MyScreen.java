@@ -26,14 +26,13 @@ public class MyScreen extends Screen implements MouseListener{
 		});
 		viewObjects.add(button);
 	}
-
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(button.isHovered(e.getX(), e.getY())){
 			button.act();
 		}
 	}
-	public MyScreen getMouseListener(){
+	public MouseListener getMouseListener(){
 		return this;
 	}
 	@Override

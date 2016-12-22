@@ -109,6 +109,27 @@ public class Graphic implements Visible {
 		return false;
 	}
 
+	public boolean isLoadedImages() {
+		return loadedImages;
+	}
+
+	public void setLoadedImages(boolean loadedImages) {
+		this.loadedImages = loadedImages;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+		update();
+	}
+	public void setY(int y) {
+		this.y = y;
+		update();
+	}
+
+	public void setImage(BufferedImage image) {
+		this.image = image;
+	}
+
 	@Override
 	public void update() {
 		//Does nothing, image stays the same for now

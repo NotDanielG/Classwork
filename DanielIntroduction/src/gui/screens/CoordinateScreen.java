@@ -13,22 +13,22 @@ import gui.components.TextArea;
 import gui.components.TextLabel;
 import gui.components.Visible;
 import gui.sampleGames.MouseFollower;
+import sampleImages.ClickableGraphic;
 import sampleImages.Graphic;
 
-public class CoordinateScreen extends Screen implements MouseListener{
+public class CoordinateScreen extends Screen implements MouseMotionListener, MouseListener{
 	private TextLabel text;
 	private Button button;
 	private TextArea textA;
-	private Graphic kol;
+	private ClickableGraphic kol;
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
 	}
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
-		text = new TextLabel(20,200,500,40,"Some text");
+		text = new TextLabel(40,45,760,40,"Sample Text");
 		viewObjects.add(text);
-		button = new Button(20,100, 100,40,"The Button", Color.orange, new Action(){
-			@Override
+		button = new Button(500,100, 100,40,"The Button", Color.orange, new Action(){
 			public void act(){
 				MouseFollower.game.setScreen(MouseFollower.screen);
 			}
@@ -37,19 +37,23 @@ public class CoordinateScreen extends Screen implements MouseListener{
 //		textA = new TextArea(40,200,550,100,"This is a whole paragraph. Notice how as the paragraph gets to the edge of the page,"
 //				+ " a new line is created.");
 //		viewObjects.add(textA);
-//		kol=new Graphic(30,30,.5,"resources/sampleImages/kol.png");
-//		viewObjects.add(kol);
+		kol = new ClickableGraphic(30,30,.5,"resources/sampleImages/kol.png");
+		kol.setAction(new Action(){
+			public void act(){
+				kol.setX(kol.getx() +5);
+			}
+		});
+		viewObjects.add(kol);
 	}
+	@Override
 	public void mouseDragged(MouseEvent event) {
 		
 	}
-
-	public void mouseMoved(MouseEvent event) {
-		text.setText("Mouse at " +event.getX() +" and at "+event.getY());
-		text.setX(event.getX());
-		text.setY(event.getY());
+	@Override
+	public MouseListener getMouseListener(){
+		return this;
 	}
-	public CoordinateScreen getMouseListener(){
+	public MouseMotionListener getMouseMotionListener(){
 		return this;
 	}
 
@@ -58,6 +62,10 @@ public class CoordinateScreen extends Screen implements MouseListener{
 		if(button.isHovered(e.getX(), e.getY())){
 			button.act();
 		}
+		if(kol.isHovered(e.getX(), e.getY())){
+			kol.act();
+		}
+		
 	}
 
 	@Override
@@ -81,6 +89,13 @@ public class CoordinateScreen extends Screen implements MouseListener{
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseMoved(MouseEvent event) {
+		text.setText("Mouse at " +event.getX() +" and at "+event.getY());
+		text.setX(event.getX());
+		text.setY(event.getY());
 		
 	}
 
