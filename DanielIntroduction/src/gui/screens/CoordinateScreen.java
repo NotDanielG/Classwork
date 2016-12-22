@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import gui.Screen;
 import gui.components.Action;
 import gui.components.Button;
+import gui.components.Clickable;
 import gui.components.TextArea;
 import gui.components.TextLabel;
 import gui.components.Visible;
@@ -21,6 +22,7 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 	private Button button;
 	private TextArea textA;
 	private ClickableGraphic kol;
+	private ArrayList<Clickable> clickables;
 	public CoordinateScreen(int width, int height) {
 		super(width, height);
 	}
@@ -44,6 +46,8 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 			}
 		});
 		viewObjects.add(kol);
+		clickables = new ArrayList<Clickable>();
+		
 	}
 	@Override
 	public void mouseDragged(MouseEvent event) {
