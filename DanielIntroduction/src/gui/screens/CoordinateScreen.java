@@ -31,8 +31,8 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 	}
 
 	public void initObjects(ArrayList<Visible> viewObjects) {
-//		text = new TextLabel(40,45,760,40,"Sample Text");
-//		viewObjects.add(text);
+		text = new TextLabel(40,45,760,40,"Sample Text");
+		viewObjects.add(text);
 //		button = new Button(500,100, 100,40,"The Button", Color.orange, new Action(){
 //			public void act(){
 //				MouseFollower.game.setScreen(MouseFollower.screen);
@@ -45,12 +45,12 @@ public class CoordinateScreen extends Screen implements MouseMotionListener, Mou
 //		kol = new ClickableGraphic(30,30,.5,"resources/sampleImages/kol.png");
 //		kol.setAction(new Action(){
 //			public void act(){
-//				kol.setX(kol.getx() +5);
+//				kol.setX(kol.getx() +50);
 //			}
 //		});
 //		viewObjects.add(kol);
-		test = new PracticeClickableScreen(800,600);
-		test.initAllObjects(viewObjects);
+//		test = new PracticeClickableScreen(800,600);
+//		test.initAllObjects(viewObjects);
 	}
 	@Override
 	public void mouseDragged(MouseEvent event) {

@@ -1,6 +1,7 @@
 package gui.sampleGames;
 
 import gui.GUIApplication;
+import gui.components.PracticeClickableScreen;
 import gui.screens.CoordinateScreen;
 
 public class MouseFollower extends GUIApplication {
@@ -20,6 +21,7 @@ public class MouseFollower extends GUIApplication {
 	
 	public static CoordinateScreen cs;
 	public static MyScreen screen;
+	public static PracticeClickableScreen test;
 	
 	public MouseFollower(int width, int height) {
 		super(width, height);
@@ -27,9 +29,11 @@ public class MouseFollower extends GUIApplication {
 
 	public void initScreen() {
 		cs = new CoordinateScreen(getWidth(), getHeight());
-		
-		setScreen(cs);
 		screen = new MyScreen(getWidth(),getHeight());
+		test = new PracticeClickableScreen(800,600);
+		setScreen(test);
+		
+		
 	}
 	
 	public static void main(String[] args) {
