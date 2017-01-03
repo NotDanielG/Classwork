@@ -81,7 +81,8 @@ public abstract class Screen {
 		 * Correct Solutions
 		 * 		while(list.get(i) > 5) list.remove(i);
 		 * 		or by adding a i--;
-		 * 
+		 *If you call list.remove(i), it will remove the object being removed at that indexS
+		 *System.out.println(list.remove(0).toString() + " was removed.");
 		 */
 		viewObjects.remove(v);
 		
