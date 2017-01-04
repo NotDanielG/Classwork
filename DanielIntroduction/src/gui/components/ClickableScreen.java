@@ -36,7 +36,7 @@ public abstract class ClickableScreen extends Screen implements MouseListener{
 		}
 	}
 	public void remove(Visible v){
-	super.remove(v);
+		//super.remove(v);
 		clickables.remove(v);
 	}
 	@Override
