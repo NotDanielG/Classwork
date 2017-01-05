@@ -28,6 +28,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 		getAPlayer();
 		label = new TextLabel(350,220,100,40,"Ready...");
 		timeLabel = new TextLabel(360,40,80,40,"30.0");
+		viewObjects.add(player);
 		viewObjects.add(label);
 		viewObjects.add(timeLabel);
 	}
@@ -41,8 +42,8 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 		return null;
 	}
 
-	private MoleInterface getAMole() {
-		return null;
+	private Mole getAMole() {
+		return new Mole((int)Math.random()*getWidth(), (int) Math.random()*getHeight());
 	}
 	
 	@Override
