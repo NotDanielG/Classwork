@@ -3,7 +3,6 @@ package gui.whackamole;
 import java.util.ArrayList;
 import java.util.List;
 
-import gui.Screen;
 import gui.components.Action;
 import gui.components.ClickableScreen;
 import gui.components.TextLabel;
@@ -18,35 +17,41 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 	
 	public WhackAMoleScreen(int width, int height) {
 		super(width, height);
-		this.timeLeft = 30.0;
+		timeLeft = 30.0;
 		Thread play = new Thread(this);
 		play.start();
 	}
-
-	@Override
-	public void initObjects(ArrayList<Visible> viewObjects) {
-		getAPlayer();
+		
+	public void initAllObjects(List<Visible> viewObjects) {
+		moles = new ArrayList<MoleInterface>();	
+		player = getAPlayer();
 		label = new TextLabel(350,220,100,40,"Ready...");
 		timeLabel = new TextLabel(360,40,80,40,"30.0");
 		viewObjects.add(player);
 		viewObjects.add(label);
 		viewObjects.add(timeLabel);
-	}
-
-	@Override
-	public void initAllObjects(List<Visible> viewObjects) {
 		
 	}
-	
-	private PlayerInterface getAPlayer() {
-		return new Player(20, 20, 100, 100);
+	public void initAllObjects(ArrayList<Visible> viewObjects) {
+//		moles = new ArrayList<MoleInterface>();	
+//		player = getAPlayer();
+//		label = new TextLabel(350,220,100,40,"Ready...");
+//		timeLabel = new TextLabel(360,40,80,40,"30.0");
+//		viewObjects.add(player);
+//		viewObjects.add(label);
+//		viewObjects.add(timeLabel);
 	}
 
-	private Mole getAMole() {
-		return new Mole((int)Math.random()*getWidth(), (int) Math.random()*getHeight());
+	
+	private PlayerInterface getAPlayer() {
+		return new Player(20, 20, 100, 100);	
+	}
+
+	private MoleInterface getAMole() {
+		return new Mole((int)Math.random()*getWidth()+50, (int) Math.random()*getHeight()+50);
+//		(int)Math.random()*getWidth(), (int) Math.random()*getHeight()
 	}
 	
-	@Override
 	public void run() {
 		changeText("Ready...");
 		changeText("Set...");
@@ -57,16 +62,15 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 			updateTimer();
 			updateAllMoles();
 			appearNewMole();
-			
 		}
 	}
 
 	private void appearNewMole() {
-		double chance = .2*(60-timeLeft/timeLeft);
+		double chance = .2*(60-timeLeft)/timeLeft;
 		if(Math.random()< chance){
 			final MoleInterface mole = getAMole();
 			mole.setAppearanceTime((int) (500+Math.random()*2000));
-			mole.setAction(new Action(){
+			mole.setAction(new Action(){	
 				public void act() {
 					player.increaseScore(1);
 					remove(mole);
@@ -75,6 +79,7 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 			});
 			addObject(mole);
 			moles.add(mole);
+			
 		}
 	}
 
@@ -112,4 +117,5 @@ public class WhackAMoleScreen extends ClickableScreen implements Runnable{
 		}
 	}
 
+	
 }

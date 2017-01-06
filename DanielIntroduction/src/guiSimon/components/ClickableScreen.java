@@ -1,11 +1,12 @@
-package gui.components;
+package guiSimon.components;
 
 import java.awt.event.MouseEvent;
+
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import gui.Screen;
+import guiSimon.Screen;
 
 public abstract class ClickableScreen extends Screen implements MouseListener{
 	
