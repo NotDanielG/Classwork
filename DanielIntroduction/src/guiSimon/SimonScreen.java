@@ -15,11 +15,19 @@ public class SimonScreen extends ClickableScreen implements Runnable{
 	
 	public SimonScreen(int x, int y) {
 		super(x, y);
+		Thread start = new Thread(this);
+		start.start();
 	}
 
 	public void initAllObjects(List<Visible> viewObjects) {
-		// TODO Auto-generated method stub
+		button = new ArrayList<ButtonInterface>();
+		player = makePlayer();
 
+	}
+
+	private PlayerInterface makePlayer() {
+		// TODO Auto-generated method stub
+		return new Player(20,20,100,100);
 	}
 
 	public void run() {
