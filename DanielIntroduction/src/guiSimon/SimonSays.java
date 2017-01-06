@@ -3,13 +3,15 @@ package guiSimon;
 public class SimonSays extends GUIApplication {
 	
 	private static SimonSays game;
+	private static SimonScreen screen;
 	public SimonSays(int width, int height) {
 		super(width, height);
 	}
 
 	@Override
 	public void initScreen() {
-		// TODO Auto-generated method stub
+		screen = new SimonScreen(getWidth(),getHeight());
+		setScreen(screen);
 
 	}
 
