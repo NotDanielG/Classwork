@@ -47,6 +47,8 @@ public class SimonScreen extends ClickableScreen implements Runnable{
 	}
 
 	private void addColorButtons() {
+		int x = 20;
+		int y = 200;
 		for(int i = 0; i < colorRoom.length;i++){
 			ButtonInterface button = makeButton(i, colorRoom[i]);
 			buttons.add(button);
