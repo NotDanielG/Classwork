@@ -4,8 +4,9 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 
 import gui.components.Components;
+import guiSimon.components.Visible;
 
-public class Player extends Components implements PlayerInterface {
+public class Player extends Components implements PlayerInterface, Visible {
 	private int score;
 	public Player(int x, int y, int w, int h) {
 		super(20, 20, 100, 100);
