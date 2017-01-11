@@ -61,8 +61,8 @@ public class MovingComponent extends Components implements Runnable{
 			posy += vy*(double)difference/REFRESH_RATE;
 			//note: for very low velocities, position might not move by much. Therefore,
 			//rounding to an int may not change
-			setX((int)(posx));
-			setY((int)(posy));
+			super.setX((int)(posx));
+			super.setY((int)(posy));
 
 		}
 		drawImage(g);
@@ -130,5 +130,11 @@ public class MovingComponent extends Components implements Runnable{
 			vx=-vx;
 		}
 		
+	}
+	public void play(){
+		if(!running){
+			Thread go = new Thread(this);
+			go.start();
+		}
 	}
 }
