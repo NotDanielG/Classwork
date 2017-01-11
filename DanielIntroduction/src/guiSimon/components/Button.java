@@ -1,10 +1,14 @@
 package guiSimon.components;
 
 import java.awt.Color;
+
+
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+
+import gui.components.Action;
 
 public class Button extends TextLabel implements Clickable{
 	private Color color;

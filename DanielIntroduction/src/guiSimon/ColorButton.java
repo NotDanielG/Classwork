@@ -2,7 +2,8 @@ package guiSimon;
 
 import java.awt.Color;
 
-import guiSimon.components.Action;
+
+import gui.components.Action;
 import guiSimon.components.Button;
 import guiSimon.components.Visible;
 
